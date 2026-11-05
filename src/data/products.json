@@ -5,7 +5,7 @@
     "slug": "cafe-d-or-moulu-pur-mvz5qazp-wqj4w",
     "category": "Cafés",
     "price": 3,
-    "image": "/products/cafe dor moulu pur.jpg"
+    "image": "/products/cafe-dor-moulu-pur.jpg"
   },
   {
     "id": 2,
@@ -13,7 +13,7 @@
     "slug": "cafe-d-or-moulu-pur-selection-mvz5st2y-1v0v3",
     "category": "Cafés",
     "price": 8.5,
-    "image": "/products/café d'or moulu pur.jpg"
+    "image": "/products/cafe-dor-moulu-pur-2.jpg"
   },
   {
     "id": 3,
@@ -29,7 +29,7 @@
     "slug": "cafe-premium-uganda",
     "category": "Cafés",
     "price": 38,
-    "image": "/products/cafe premium uganda.jpg"
+    "image": "/products/cafe-premium-uganda.jpg"
   },
   {
     "id": 5,
@@ -37,7 +37,7 @@
     "slug": "cafe-premium-vietnam",
     "category": "Cafés",
     "price": 38,
-    "image": "/products/cafe premium vietnam.jpg"
+    "image": "/products/cafe-premium-vietnam.jpg"
   },
   {
     "id": 6,
@@ -45,7 +45,7 @@
     "slug": "caffe-d-or-espresso-mvz5tbt1-od9q1",
     "category": "Cafés",
     "price": 34.5,
-    "image": "/products/caffe_dor_expresso.jpg"
+    "image": "/products/caffe-dor-expresso.jpg"
   },
   {
     "id": 7,
@@ -53,7 +53,7 @@
     "slug": "saveurs-chocolat-chaud",
     "category": "Cafés",
     "price": 21,
-    "image": "/products/saveurs chocolat chaud.jpg"
+    "image": "/products/saveurs-chocolat-chaud.jpg"
   },
   {
     "id": 8,
@@ -61,7 +61,7 @@
     "slug": "al-kanaa-banane",
     "category": "Boissons",
     "price": 4.5,
-    "image": "/products/al kanaa banane.jpg"
+    "image": "/products/al-kanaa-banane.jpg"
   },
   {
     "id": 9,
@@ -69,7 +69,7 @@
     "slug": "al-kanaa-menthe",
     "category": "Boissons",
     "price": 4.5,
-    "image": "/products/al kanaa menthe.jpg"
+    "image": "/products/al-kanaa-menthe.jpg"
   },
   {
     "id": 10,
@@ -77,7 +77,7 @@
     "slug": "al-kanaa-pistachio",
     "category": "Boissons",
     "price": 4.5,
-    "image": "/products/al kanaa pistachio.jpg"
+    "image": "/products/al-kanaa-pistachio.jpg"
   },
   {
     "id": 11,
@@ -85,7 +85,7 @@
     "slug": "el-kanaa-amande",
     "category": "Boissons",
     "price": 4.5,
-    "image": "/products/el kanaa amande.jpg"
+    "image": "/products/el-kanaa-amande.jpg"
   },
   {
     "id": 12,
@@ -93,7 +93,7 @@
     "slug": "sirop-banane",
     "category": "Sirops",
     "price": 15,
-    "image": "/products/sirop banane.jpg"
+    "image": "/products/sirop-banane.jpg"
   },
   {
     "id": 13,
@@ -101,7 +101,7 @@
     "slug": "sirop-caramel",
     "category": "Sirops",
     "price": 15,
-    "image": "/products/sirop caramel.jpg"
+    "image": "/products/sirop-caramel.jpg"
   },
   {
     "id": 14,
@@ -109,7 +109,7 @@
     "slug": "sirop-citron-vert",
     "category": "Sirops",
     "price": 15,
-    "image": "/products/sirop citron vert.jpg"
+    "image": "/products/sirop-citron-vert.jpg"
   },
   {
     "id": 15,
@@ -133,7 +133,7 @@
     "slug": "sirop-mangue",
     "category": "Sirops",
     "price": 15,
-    "image": "/products/sirop manque.jpg"
+    "image": "/products/sirop-manque.jpg"
   },
   {
     "id": 18,
@@ -141,7 +141,7 @@
     "slug": "sirop-melon",
     "category": "Sirops",
     "price": 15,
-    "image": "/products/sirop melon.jpg"
+    "image": "/products/sirop-melon.jpg"
   },
   {
     "id": 19,
@@ -149,7 +149,7 @@
     "slug": "sirop-noisette",
     "category": "Sirops",
     "price": 15,
-    "image": "/products/Sirop Noisette.jpg"
+    "image": "/products/sirop-noisette.jpg"
   },
   {
     "id": 20,
@@ -157,7 +157,7 @@
     "slug": "sirop-pasteque",
     "category": "Sirops",
     "price": 15,
-    "image": "/products/SIROP PASTEQUE.jpg"
+    "image": "/products/sirop-pasteque.jpg"
   },
   {
     "id": 21,
@@ -165,7 +165,7 @@
     "slug": "sirop-peche",
     "category": "Sirops",
     "price": 15,
-    "image": "/products/sirop peche.jpg"
+    "image": "/products/sirop-peche.jpg"
   },
   {
     "id": 22,
@@ -181,7 +181,7 @@
     "slug": "dokrem-caramel",
     "category": "Dokrem",
     "price": 13,
-    "image": "/products/dokrem caramel.jpg"
+    "image": "/products/dokrem-caramel.jpg"
   },
   {
     "id": 24,
@@ -189,7 +189,7 @@
     "slug": "dokrem-vanille",
     "category": "Dokrem",
     "price": 13,
-    "image": "/products/dokren vanille.jpg"
+    "image": "/products/dokren-vanille.jpg"
   },
   {
     "id": 25,
@@ -197,7 +197,7 @@
     "slug": "fremigel-banane",
     "category": "Fremigel",
     "price": 13,
-    "image": "/products/fremigel banane.jpg"
+    "image": "/products/fremigel-banane.jpg"
   },
   {
     "id": 26,
@@ -205,7 +205,7 @@
     "slug": "fremigel-blue-curacao",
     "category": "Fremigel",
     "price": 13,
-    "image": "/products/fremigel blue curacao.jpg"
+    "image": "/products/fremigel-blue-curacao.jpg"
   },
   {
     "id": 27,
@@ -213,7 +213,7 @@
     "slug": "fremigel-caramel",
     "category": "Fremigel",
     "price": 13,
-    "image": "/products/fremigel caramel.jpg"
+    "image": "/products/fremigel-caramel.jpg"
   },
   {
     "id": 28,
@@ -221,7 +221,7 @@
     "slug": "fremigel-chocolat-chaud",
     "category": "Fremigel",
     "price": 21,
-    "image": "/products/fremigel chaucolat chaud.jpg"
+    "image": "/products/fremigel-chaucolat-chaud.jpg"
   },
   {
     "id": 29,
@@ -229,7 +229,7 @@
     "slug": "fremigel-fraise",
     "category": "Fremigel",
     "price": 13,
-    "image": "/products/fremigel fraise.jpg"
+    "image": "/products/fremigel-fraise.jpg"
   },
   {
     "id": 30,
@@ -237,7 +237,7 @@
     "slug": "fremigel-mangue",
     "category": "Fremigel",
     "price": 13,
-    "image": "/products/fremigel manque.jpg"
+    "image": "/products/fremigel-manque.jpg"
   },
   {
     "id": 31,
@@ -245,7 +245,7 @@
     "slug": "fremigel-mojito",
     "category": "Fremigel",
     "price": 13,
-    "image": "/products/fremigel mojito.jpg"
+    "image": "/products/fremigel-mojito.jpg"
   },
   {
     "id": 32,
@@ -253,7 +253,7 @@
     "slug": "fremigel-noisette",
     "category": "Fremigel",
     "price": 13,
-    "image": "/products/fremigel noisette.jpg"
+    "image": "/products/fremigel-noisette.jpg"
   },
   {
     "id": 33,
@@ -261,7 +261,7 @@
     "slug": "fremigel-pasteque",
     "category": "Fremigel",
     "price": 13,
-    "image": "/products/fremigel pastéque.jpg"
+    "image": "/products/fremigel-pasteque.jpg"
   },
   {
     "id": 34,
@@ -269,7 +269,7 @@
     "slug": "fremigel-peche",
     "category": "Fremigel",
     "price": 13,
-    "image": "/products/fremigel peche.jpg"
+    "image": "/products/fremigel-peche.jpg"
   },
   {
     "id": 35,
@@ -277,7 +277,7 @@
     "slug": "fremigel-pinacolada",
     "category": "Fremigel",
     "price": 13,
-    "image": "/products/fremigel pinacolada.jpg"
+    "image": "/products/fremigel-pinacolada.jpg"
   },
   {
     "id": 36,
@@ -285,7 +285,7 @@
     "slug": "fremigel-roseberry",
     "category": "Fremigel",
     "price": 13,
-    "image": "/products/fremigel roseberry.jpg"
+    "image": "/products/fremigel-roseberry.jpg"
   },
   {
     "id": 37,
@@ -293,7 +293,7 @@
     "slug": "fremigel-vanille",
     "category": "Fremigel",
     "price": 13,
-    "image": "/products/fremigel vanille.jpg"
+    "image": "/products/fremigel-vanille.jpg"
   },
   {
     "id": 38,
@@ -301,7 +301,7 @@
     "slug": "fropping-caramel",
     "category": "Fropping & toppings",
     "price": 9,
-    "image": "/products/fropping caramel.jpg"
+    "image": "/products/fropping-caramel.jpg"
   },
   {
     "id": 39,
@@ -309,7 +309,7 @@
     "slug": "fropping-chocolat-noir",
     "category": "Fropping & toppings",
     "price": 9,
-    "image": "/products/fropping chocolat noir.jpg"
+    "image": "/products/fropping-chocolat-noir.jpg"
   },
   {
     "id": 40,
@@ -317,7 +317,7 @@
     "slug": "fropping-fraise",
     "category": "Fropping & toppings",
     "price": 9,
-    "image": "/products/fropping fraise.jpg"
+    "image": "/products/fropping-fraise.jpg"
   },
   {
     "id": 41,
@@ -325,7 +325,7 @@
     "slug": "fropping-framboise",
     "category": "Fropping & toppings",
     "price": 9,
-    "image": "/products/fropping framboise.jpg"
+    "image": "/products/fropping-framboise.jpg"
   },
   {
     "id": 42,
@@ -333,7 +333,7 @@
     "slug": "fropping-kiwi",
     "category": "Fropping & toppings",
     "price": 9,
-    "image": "/products/fropping kiwi.jpg"
+    "image": "/products/fropping-kiwi.jpg"
   },
   {
     "id": 43,
@@ -341,7 +341,7 @@
     "slug": "fropping-noisette",
     "category": "Fropping & toppings",
     "price": 9,
-    "image": "/products/fropping noisette.jpg"
+    "image": "/products/fropping-noisette.jpg"
   },
   {
     "id": 44,
@@ -349,7 +349,7 @@
     "slug": "fropping-vanille",
     "category": "Fropping & toppings",
     "price": 9,
-    "image": "/products/fropping vanille.jpg"
+    "image": "/products/fropping-vanille.jpg"
   },
   {
     "id": 45,
@@ -357,7 +357,7 @@
     "slug": "fructa-banane",
     "category": "Fructa",
     "price": 30,
-    "image": "/products/fructa banane.jpg"
+    "image": "/products/fructa-banane.jpg"
   },
   {
     "id": 46,
@@ -365,7 +365,7 @@
     "slug": "fructa-cerise",
     "category": "Fructa",
     "price": 30,
-    "image": "/products/fructa cherry.jpg"
+    "image": "/products/fructa-cherry.jpg"
   },
   {
     "id": 47,
@@ -373,7 +373,7 @@
     "slug": "fructa-douceur-de-fruits",
     "category": "Fructa",
     "price": 35,
-    "image": "/products/fructaa douceur de fruits.jpg"
+    "image": "/products/fructaa-douceur-de-fruits.jpg"
   },
   {
     "id": 48,
@@ -381,7 +381,7 @@
     "slug": "fructa-kiwi",
     "category": "Fructa",
     "price": 30,
-    "image": "/products/fructa kiwi.jpg"
+    "image": "/products/fructa-kiwi.jpg"
   },
   {
     "id": 49,
@@ -389,7 +389,7 @@
     "slug": "fructa-mangue",
     "category": "Fructa",
     "price": 30,
-    "image": "/products/fructa manque.jpg"
+    "image": "/products/fructa-manque.jpg"
   },
   {
     "id": 50,
@@ -397,7 +397,7 @@
     "slug": "fructa-peche",
     "category": "Fructa",
     "price": 30,
-    "image": "/products/fructa peach.jpg"
+    "image": "/products/fructa-peach.jpg"
   },
   {
     "id": 51,
@@ -405,7 +405,7 @@
     "slug": "fructa-pomme",
     "category": "Fructa",
     "price": 30,
-    "image": "/products/fructa pomme.jpg"
+    "image": "/products/fructa-pomme.jpg"
   },
   {
     "id": 52,
@@ -413,7 +413,7 @@
     "slug": "saveurs-ananas",
     "category": "Saveurs",
     "price": 35,
-    "image": "/products/saveurs ananas.jpg"
+    "image": "/products/saveurs-ananas.jpg"
   },
   {
     "id": 53,
@@ -421,7 +421,7 @@
     "slug": "saveurs-ananas-selection",
     "category": "Saveurs",
     "price": 35,
-    "image": "/products/saveurs ananass.jpg"
+    "image": "/products/saveurs-ananass.jpg"
   },
   {
     "id": 54,
@@ -429,7 +429,7 @@
     "slug": "saveurs-banane",
     "category": "Saveurs",
     "price": 35,
-    "image": "/products/saveurs banane.jpg"
+    "image": "/products/saveurs-banane.jpg"
   },
   {
     "id": 55,
@@ -437,7 +437,7 @@
     "slug": "saveurs-cerise",
     "category": "Saveurs",
     "price": 35,
-    "image": "/products/saveurs cerise.jpg"
+    "image": "/products/saveurs-cerise.jpg"
   },
   {
     "id": 56,
@@ -445,7 +445,7 @@
     "slug": "saveurs-framboise",
     "category": "Saveurs",
     "price": 35,
-    "image": "/products/saveurs framboise.jpg"
+    "image": "/products/saveurs-framboise.jpg"
   },
   {
     "id": 57,
@@ -453,7 +453,7 @@
     "slug": "saveurs-fruit-passion",
     "category": "Saveurs",
     "price": 35,
-    "image": "/products/saveurs fruit de la passion.jpg"
+    "image": "/products/saveurs-fruit-de-la-passion.jpg"
   },
   {
     "id": 58,
@@ -461,7 +461,7 @@
     "slug": "saveurs-kiwi",
     "category": "Saveurs",
     "price": 35,
-    "image": "/products/saveurs kiwi.jpg"
+    "image": "/products/saveurs-kiwi.jpg"
   },
   {
     "id": 59,
@@ -469,7 +469,7 @@
     "slug": "saveurs-litchi",
     "category": "Saveurs",
     "price": 35,
-    "image": "/products/saveurs litchi.jpg"
+    "image": "/products/saveurs-litchi.jpg"
   },
   {
     "id": 60,
@@ -477,7 +477,7 @@
     "slug": "saveurs-noix-coco",
     "category": "Saveurs",
     "price": 35,
-    "image": "/products/saveurs Noix de coco.jpg"
+    "image": "/products/saveurs-noix-de-coco.jpg"
   },
   {
     "id": 61,
@@ -485,7 +485,7 @@
     "slug": "saveurs-peche",
     "category": "Saveurs",
     "price": 35,
-    "image": "/products/saveurs péche.jpg"
+    "image": "/products/saveurs-peche.jpg"
   },
   {
     "id": 62,
@@ -493,7 +493,7 @@
     "slug": "saveurs-pomme-verte",
     "category": "Saveurs",
     "price": 35,
-    "image": "/products/saveurs pomme verte.jpg"
+    "image": "/products/saveurs-pomme-verte.jpg"
   },
   {
     "id": 63,
@@ -501,7 +501,7 @@
     "slug": "sauce-caramel",
     "category": "Sauces & nappages",
     "price": 60,
-    "image": "/products/sauce caramel.jpg"
+    "image": "/products/sauce-caramel.jpg"
   },
   {
     "id": 64,
@@ -509,7 +509,7 @@
     "slug": "base-frappe-cafe",
     "category": "Bases boissons",
     "price": 35,
-    "image": "/products/smoothie base frappé.jpg"
+    "image": "/products/smoothie-base-frappe.jpg"
   },
   {
     "id": 65,
@@ -517,7 +517,7 @@
     "slug": "base-smoothie-neutre",
     "category": "Bases boissons",
     "price": 30,
-    "image": "/products/smoothie base neutre.jpg"
+    "image": "/products/smoothie-base-neutre.jpg"
   },
   {
     "id": 66,
@@ -525,7 +525,7 @@
     "slug": "base-pistache",
     "category": "Bases boissons",
     "price": 34.5,
-    "image": "/products/Smoothie base PISTACHIO.jpg"
+    "image": "/products/smoothie-base-pistachio.jpg"
   },
   {
     "id": 67,
@@ -533,7 +533,7 @@
     "slug": "creme-tartiner-bennos",
     "category": "Crèmes à tartiner",
     "price": 22,
-    "image": "/products/créme a tartiner bennos.jpg"
+    "image": "/products/creme-a-tartiner-bennos.jpg"
   },
   {
     "id": 68,
@@ -541,7 +541,7 @@
     "slug": "creme-tartiner-chocolat-blanc",
     "category": "Crèmes à tartiner",
     "price": 22,
-    "image": "/products/creme a tartiner chocolat blanc.jpg"
+    "image": "/products/creme-a-tartiner-chocolat-blanc.jpg"
   },
   {
     "id": 69,
@@ -549,7 +549,7 @@
     "slug": "creme-tartiner-oreo",
     "category": "Crèmes à tartiner",
     "price": 22.5,
-    "image": "/products/créme a tartiner oreo.jpg"
+    "image": "/products/creme-a-tartiner-oreo.jpg"
   },
   {
     "id": 70,
@@ -557,7 +557,7 @@
     "slug": "creme-tartiner-rochero",
     "category": "Crèmes à tartiner",
     "price": 22.5,
-    "image": "/products/creme a tartiner rochero.jpg"
+    "image": "/products/creme-a-tartiner-rochero.jpg"
   },
   {
     "id": 71,
@@ -565,7 +565,7 @@
     "slug": "creme-tartiner-speculoos",
     "category": "Crèmes à tartiner",
     "price": 22.5,
-    "image": "/products/créme a tartiner spéculoos.jpg"
+    "image": "/products/creme-a-tartiner-speculoos.jpg"
   },
   {
     "id": 72,
@@ -573,7 +573,7 @@
     "slug": "kremy-blanc-noisette-crunchy",
     "category": "Crèmes à tartiner",
     "price": 22,
-    "image": "/products/Kremy Chocolat blanc Noisette Crunchy.jpg"
+    "image": "/products/kremy-chocolat-blanc-noisette-crunchy.jpg"
   },
   {
     "id": 73,
@@ -581,7 +581,7 @@
     "slug": "kremy-chocolat-blanc",
     "category": "Crèmes à tartiner",
     "price": 22,
-    "image": "/products/Kremy Chocolat Blanc.jpg"
+    "image": "/products/kremy-chocolat-blanc.jpg"
   },
   {
     "id": 74,
@@ -589,7 +589,7 @@
     "slug": "kremy-chocolat-noisette",
     "category": "Crèmes à tartiner",
     "price": 26,
-    "image": "/products/kremy chocolat & Noisette.jpg"
+    "image": "/products/kremy-chocolat-and-noisette.jpg"
   },
   {
     "id": 75,
@@ -621,7 +621,7 @@
     "slug": "creme-caramel",
     "category": "Crèmes & garnitures",
     "price": 9,
-    "image": "/products/creme caramel.jpg"
+    "image": "/products/creme-caramel.jpg"
   },
   {
     "id": 79,
@@ -629,7 +629,7 @@
     "slug": "creme-chantilly",
     "category": "Crèmes & garnitures",
     "price": 16.5,
-    "image": "/products/creme chantilly.jpg"
+    "image": "/products/creme-chantilly.jpg"
   },
   {
     "id": 80,
@@ -637,7 +637,7 @@
     "slug": "creme-chocolat",
     "category": "Crèmes & garnitures",
     "price": 9,
-    "image": "/products/creme chocolat.jpg"
+    "image": "/products/creme-chocolat.jpg"
   },
   {
     "id": 81,
@@ -645,7 +645,7 @@
     "slug": "creme-dokrem-fropping",
     "category": "Crèmes & garnitures",
     "price": 9,
-    "image": "/products/creme dokrem fropping.jpg"
+    "image": "/products/creme-dokrem-fropping.jpg"
   },
   {
     "id": 82,
@@ -653,7 +653,7 @@
     "slug": "creme-fraise",
     "category": "Crèmes & garnitures",
     "price": 9,
-    "image": "/products/creme fraise.jpg"
+    "image": "/products/creme-fraise.jpg"
   },
   {
     "id": 83,
@@ -661,7 +661,7 @@
     "slug": "creme-framboise",
     "category": "Crèmes & garnitures",
     "price": 9,
-    "image": "/products/creme framboise.jpg"
+    "image": "/products/creme-framboise.jpg"
   },
   {
     "id": 84,
@@ -669,7 +669,7 @@
     "slug": "creme-kremy-chantilly",
     "category": "Crèmes & garnitures",
     "price": 16.5,
-    "image": "/products/kremy creme chantitty.jpg"
+    "image": "/products/kremy-creme-chantitty.jpg"
   },
   {
     "id": 85,
@@ -677,7 +677,7 @@
     "slug": "creme-noisette",
     "category": "Crèmes & garnitures",
     "price": 9,
-    "image": "/products/creme noisette.jpg"
+    "image": "/products/creme-noisette.jpg"
   },
   {
     "id": 86,
@@ -685,7 +685,7 @@
     "slug": "chope-vanille",
     "category": "Glaces",
     "price": 11,
-    "image": "/products/chope vanille.jpg"
+    "image": "/products/chope-vanille.jpg"
   },
   {
     "id": 87,
@@ -693,7 +693,7 @@
     "slug": "glace-euclase",
     "category": "Glaces",
     "price": 17,
-    "image": "/products/glace euclase.jpg"
+    "image": "/products/glace-euclase.jpg"
   },
   {
     "id": 88,
@@ -701,7 +701,7 @@
     "slug": "lait-concentre-sucre",
     "category": "Épicerie",
     "price": 8.8,
-    "image": "/products/lait concentré succré.jpg"
+    "image": "/products/lait-concentre-succre.jpg"
   },
   {
     "id": 89,
@@ -709,7 +709,7 @@
     "slug": "melange-lait-concentre",
     "category": "Épicerie",
     "price": 17,
-    "image": "/products/mélange de lait concentré.jpg"
+    "image": "/products/melange-de-lait-concentre.jpg"
   },
   {
     "id": 90,
@@ -717,7 +717,7 @@
     "slug": "saveur-du-matin",
     "category": "Épicerie",
     "price": 12,
-    "image": "/products/saveur du matin.jpg"
+    "image": "/products/saveur-du-matin.jpg"
   },
   {
     "id": 91,
@@ -725,7 +725,7 @@
     "slug": "lait-concentre-sweetened",
     "category": "Épicerie",
     "price": 8.8,
-    "image": "/products/sweetened condensed milk.jpg"
+    "image": "/products/sweetened-condensed-milk.jpg"
   },
   {
     "id": 92,
@@ -733,7 +733,7 @@
     "slug": "assiette-white-moon",
     "category": "Verrerie & tasses",
     "price": 22,
-    "image": "/products/plate white moon.jpg"
+    "image": "/products/plate-white-moon.jpg"
   },
   {
     "id": 93,
@@ -741,7 +741,7 @@
     "slug": "premium-drinking-mug",
     "category": "Verrerie & tasses",
     "price": 45,
-    "image": "/products/big house premium drinking mug.jpg"
+    "image": "/products/big-house-premium-drinking-mug.jpg"
   },
   {
     "id": 94,
@@ -749,7 +749,7 @@
     "slug": "boite-verre-conservation",
     "category": "Verrerie & tasses",
     "price": 35,
-    "image": "/products/glass food storage.jpg"
+    "image": "/products/glass-food-storage.jpg"
   },
   {
     "id": 95,
@@ -757,7 +757,7 @@
     "slug": "mug-the-eduador",
     "category": "Verrerie & tasses",
     "price": 14,
-    "image": "/products/glass eduador tea mug.jpg"
+    "image": "/products/glass-eduador-tea-mug.jpg"
   },
   {
     "id": 96,
@@ -765,7 +765,7 @@
     "slug": "cup-small",
     "category": "Verrerie & tasses",
     "price": 15,
-    "image": "/products/cup small.jpg"
+    "image": "/products/cup-small.jpg"
   },
   {
     "id": 97,
@@ -773,7 +773,7 @@
     "slug": "luminarc-service",
     "category": "Verrerie & tasses",
     "price": 0,
-    "image": "/products/luminarc service.jpg"
+    "image": "/products/luminarc-service.jpg"
   },
   {
     "id": 98,
@@ -789,7 +789,7 @@
     "slug": "tasse-verre",
     "category": "Verrerie & tasses",
     "price": 0,
-    "image": "/products/tasse en verre.jpg"
+    "image": "/products/tasse-en-verre.jpg"
   },
   {
     "id": 100,
@@ -797,7 +797,7 @@
     "slug": "tasses-the-brasiliano",
     "category": "Verrerie & tasses",
     "price": 18,
-    "image": "/products/Tasses.jpg"
+    "image": "/products/tasses.jpg"
   },
   {
     "id": 101,
@@ -805,7 +805,7 @@
     "slug": "verre-the-ohio",
     "category": "Verrerie & tasses",
     "price": 11,
-    "image": "/products/glaass the ohio.jpg"
+    "image": "/products/glaass-the-ohio.jpg"
   },
   {
     "id": 102,
@@ -813,7 +813,7 @@
     "slug": "verre-antalya",
     "category": "Verrerie & tasses",
     "price": 12,
-    "image": "/products/glass antalya.jpg"
+    "image": "/products/glass-antalya.jpg"
   },
   {
     "id": 103,
@@ -821,7 +821,7 @@
     "slug": "verre-casual",
     "category": "Verrerie & tasses",
     "price": 18,
-    "image": "/products/glass casual.jpg"
+    "image": "/products/glass-casual.jpg"
   },
   {
     "id": 104,
@@ -829,7 +829,7 @@
     "slug": "verre-glint-lines",
     "category": "Verrerie & tasses",
     "price": 12,
-    "image": "/products/glass glint lines.jpg"
+    "image": "/products/glass-glint-lines.jpg"
   },
   {
     "id": 105,
@@ -837,7 +837,7 @@
     "slug": "verre-in-love",
     "category": "Verrerie & tasses",
     "price": 13,
-    "image": "/products/glass in love.jpg"
+    "image": "/products/glass-in-love.jpg"
   },
   {
     "id": 106,
@@ -845,7 +845,7 @@
     "slug": "verre-karma",
     "category": "Verrerie & tasses",
     "price": 0,
-    "image": "/products/glass karma.jpg"
+    "image": "/products/glass-karma.jpg"
   },
   {
     "id": 107,
@@ -853,7 +853,7 @@
     "slug": "verre-luminarc-martigues",
     "category": "Verrerie & tasses",
     "price": 16,
-    "image": "/products/glass luminarc martigues.jpg"
+    "image": "/products/glass-luminarc-martigues.jpg"
   },
   {
     "id": 108,
@@ -861,7 +861,7 @@
     "slug": "verre-maghrebin",
     "category": "Verrerie & tasses",
     "price": 13,
-    "image": "/products/glass maghrebin.jpg"
+    "image": "/products/glass-maghrebin.jpg"
   },
   {
     "id": 109,
@@ -869,7 +869,7 @@
     "slug": "verre-norvege",
     "category": "Verrerie & tasses",
     "price": 10,
-    "image": "/products/glass norvége.jpg"
+    "image": "/products/glass-norvege.jpg"
   },
   {
     "id": 110,
@@ -877,7 +877,7 @@
     "slug": "verre-ribello-lines",
     "category": "Verrerie & tasses",
     "price": 12,
-    "image": "/products/glass ribrllo lines.jpg"
+    "image": "/products/glass-ribrllo-lines.jpg"
   },
   {
     "id": 111,
@@ -885,7 +885,7 @@
     "slug": "verre-ruya",
     "category": "Verrerie & tasses",
     "price": 9,
-    "image": "/products/glass ruya.jpg"
+    "image": "/products/glass-ruya.jpg"
   },
   {
     "id": 112,
@@ -893,7 +893,7 @@
     "slug": "verre-sicilly",
     "category": "Verrerie & tasses",
     "price": 16,
-    "image": "/products/glass sicilly.jpg"
+    "image": "/products/glass-sicilly.jpg"
   },
   {
     "id": 113,
@@ -901,7 +901,7 @@
     "slug": "verre-venezia",
     "category": "Verrerie & tasses",
     "price": 12,
-    "image": "/products/glass venezia.jpg"
+    "image": "/products/glass-venezia.jpg"
   },
   {
     "id": 114,
@@ -909,7 +909,7 @@
     "slug": "verre-zaru-coffee",
     "category": "Verrerie & tasses",
     "price": 7,
-    "image": "/products/glass zaru coffee.jpg"
+    "image": "/products/glass-zaru-coffee.jpg"
   },
   {
     "id": 115,
@@ -917,7 +917,7 @@
     "slug": "verres-executives",
     "category": "Verrerie & tasses",
     "price": 0,
-    "image": "/products/verres executives.jpg"
+    "image": "/products/verres-executives.jpg"
   },
   {
     "id": 116,
@@ -925,7 +925,7 @@
     "slug": "verre-tumblers",
     "category": "Verrerie & tasses",
     "price": 13,
-    "image": "/products/glass tumblers.jpg"
+    "image": "/products/glass-tumblers.jpg"
   },
   {
     "id": 117,
@@ -933,7 +933,7 @@
     "slug": "verre-tumblers-ribbed",
     "category": "Verrerie & tasses",
     "price": 17,
-    "image": "/products/glass tumblers ribbed.jpg"
+    "image": "/products/glass-tumblers-ribbed.jpg"
   },
   {
     "id": 118,
@@ -973,7 +973,7 @@
     "slug": "charbon-coco",
     "category": "Accessoires chicha",
     "price": 17,
-    "image": "/products/charbon de coco.jpg"
+    "image": "/products/charbon-de-coco.jpg"
   },
   {
     "id": 123,
@@ -981,7 +981,7 @@
     "slug": "mouth-tips",
     "category": "Accessoires chicha",
     "price": 2.5,
-    "image": "/products/mouth tips.jpg"
+    "image": "/products/mouth-tips.jpg"
   },
   {
     "id": 124,
@@ -989,7 +989,7 @@
     "slug": "shisha-mouthpieces",
     "category": "Accessoires chicha",
     "price": 3.5,
-    "image": "/products/shisha mouthpieces.jpg"
+    "image": "/products/shisha-mouthpieces.jpg"
   },
   {
     "id": 125,
@@ -997,7 +997,7 @@
     "slug": "fahm-safinet",
     "category": "Accessoires chicha",
     "price": 2.5,
-    "image": "/products/fahm safinet.jpg"
+    "image": "/products/fahm-safinet.jpg"
   },
   {
     "id": 126,
@@ -1005,7 +1005,7 @@
     "slug": "luxado-barouk",
     "category": "Cosmétiques",
     "price": 4.5,
-    "image": "/products/luxado barouk.jpg"
+    "image": "/products/luxado-barouk.jpg"
   },
   {
     "id": 127,
@@ -1013,7 +1013,7 @@
     "slug": "luxado-black",
     "category": "Cosmétiques",
     "price": 4.5,
-    "image": "/products/luxado black.jpg"
+    "image": "/products/luxado-black.jpg"
   },
   {
     "id": 128,
@@ -1021,7 +1021,7 @@
     "slug": "luxado-cire-epilation",
     "category": "Cosmétiques",
     "price": 7,
-    "image": "/products/luxado cire epilation.jpg"
+    "image": "/products/luxado-cire-epilation.jpg"
   },
   {
     "id": 129,
@@ -1029,7 +1029,7 @@
     "slug": "luxado-cire-epilation-vera",
     "category": "Cosmétiques",
     "price": 4.5,
-    "image": "/products/luxado cire epilation.jpg"
+    "image": "/products/luxado-cire-epilation-2.jpg"
   },
   {
     "id": 130,
@@ -1037,7 +1037,7 @@
     "slug": "luxado-eau-parfum",
     "category": "Cosmétiques",
     "price": 13,
-    "image": "/products/luxado eau de parfum.jpg"
+    "image": "/products/luxado-eau-de-parfum.jpg"
   },
   {
     "id": 131,
@@ -1045,7 +1045,7 @@
     "slug": "luxado-gel-coiffant",
     "category": "Cosmétiques",
     "price": 3.5,
-    "image": "/products/luxado gel coiffant.jpg"
+    "image": "/products/luxado-gel-coiffant.jpg"
   },
   {
     "id": 132,
@@ -1053,7 +1053,7 @@
     "slug": "luxado-hair-wax",
     "category": "Cosmétiques",
     "price": 3.5,
-    "image": "/products/luxado hair wax.jpg"
+    "image": "/products/luxado-hair-wax.jpg"
   },
   {
     "id": 133,
@@ -1061,7 +1061,7 @@
     "slug": "luxado-homme",
     "category": "Cosmétiques",
     "price": 15,
-    "image": "/products/luxado homme.jpg"
+    "image": "/products/luxado-homme.jpg"
   },
   {
     "id": 134,
@@ -1069,7 +1069,7 @@
     "slug": "luxado-masque-argile-verte",
     "category": "Cosmétiques",
     "price": 4.5,
-    "image": "/products/luxado masque argile verte.jpg"
+    "image": "/products/luxado-masque-argile-verte.jpg"
   },
   {
     "id": 135,
@@ -1077,7 +1077,7 @@
     "slug": "luxado-miel-cire-epilation",
     "category": "Cosmétiques",
     "price": 7,
-    "image": "/products/luxado miel cire epilation.jpg"
+    "image": "/products/luxado-miel-cire-epilation.jpg"
   },
   {
     "id": 136,
@@ -1085,7 +1085,7 @@
     "slug": "luxado-miel-hydratante",
     "category": "Cosmétiques",
     "price": 4.5,
-    "image": "/products/coublets a dessert.jpg"
+    "image": "/products/coublets-a-dessert.jpg"
   },
   {
     "id": 137,
@@ -1093,7 +1093,7 @@
     "slug": "luxado-nourishing-jelly",
     "category": "Cosmétiques",
     "price": 3.5,
-    "image": "/products/luxado nourishing jelly.jpg"
+    "image": "/products/luxado-nourishing-jelly.jpg"
   },
   {
     "id": 138,
@@ -1101,7 +1101,7 @@
     "slug": "luxado-petroleum-jelly",
     "category": "Cosmétiques",
     "price": 3.5,
-    "image": "/products/luxado petroleum jelly.jpg"
+    "image": "/products/luxado-petroleum-jelly.jpg"
   },
   {
     "id": 139,
@@ -1109,7 +1109,7 @@
     "slug": "luxado-petroleum-jelly-2",
     "category": "Cosmétiques",
     "price": 3.5,
-    "image": "/products/luxado petroleum jelly 2.jpg"
+    "image": "/products/luxado-petroleum-jelly-2.jpg"
   },
   {
     "id": 140,
@@ -1117,7 +1117,7 @@
     "slug": "luxado-rose",
     "category": "Cosmétiques",
     "price": 4.5,
-    "image": "/products/luxado rose.jpg"
+    "image": "/products/luxado-rose.jpg"
   },
   {
     "id": 141,
@@ -1125,7 +1125,7 @@
     "slug": "luxado-rose-cire-epilation",
     "category": "Cosmétiques",
     "price": 7,
-    "image": "/products/luxado rose cire epilation.jpg"
+    "image": "/products/luxado-rose-cire-epilation.jpg"
   },
   {
     "id": 142,
@@ -1269,7 +1269,7 @@
     "slug": "lilas-deodorant-extreme-vanille",
     "category": "Hygiène",
     "price": 6.5,
-    "image": "/products/coublets a dessert.jpg"
+    "image": "/products/coublets-a-dessert-2.jpg"
   },
   {
     "id": 160,
@@ -1277,7 +1277,7 @@
     "slug": "lilas-deodorant-supreme",
     "category": "Hygiène",
     "price": 6.5,
-    "image": "/products/coublets a dessert.jpg"
+    "image": "/products/coublets-a-dessert-3.jpg"
   },
   {
     "id": 161,
@@ -1381,7 +1381,7 @@
     "slug": "orlena-original",
     "category": "Hygiène",
     "price": 18,
-    "image": "/products/orlena original.jpg"
+    "image": "/products/orlena-original.jpg"
   },
   {
     "id": 174,
@@ -1389,7 +1389,7 @@
     "slug": "tapis-toilette",
     "category": "Hygiène",
     "price": 9.9,
-    "image": "/products/tapis de toilette.jpg"
+    "image": "/products/tapis-de-toilette.jpg"
   },
   {
     "id": 175,
@@ -1397,7 +1397,7 @@
     "slug": "tapis-toilette-2",
     "category": "Hygiène",
     "price": 9.9,
-    "image": "/products/tapis de toilette.jpg"
+    "image": "/products/tapis-de-toilette-2.jpg"
   },
   {
     "id": 176,
@@ -1437,7 +1437,7 @@
     "slug": "tablier-silver",
     "category": "Tabliers & vêtements pro",
     "price": 8,
-    "image": "/products/jbad silver.jpg"
+    "image": "/products/jbad-silver.jpg"
   },
   {
     "id": 181,
@@ -1445,7 +1445,7 @@
     "slug": "tablier-marron-pro-plus",
     "category": "Tabliers & vêtements pro",
     "price": 12,
-    "image": "/products/jbad bouni pro.jpg"
+    "image": "/products/jbad-bouni-pro.jpg"
   },
   {
     "id": 182,
@@ -1453,7 +1453,7 @@
     "slug": "tablier-marron-pro",
     "category": "Tabliers & vêtements pro",
     "price": 10,
-    "image": "/products/jbad bouni bro.jpg"
+    "image": "/products/jbad-bouni-bro.jpg"
   },
   {
     "id": 183,
@@ -1461,7 +1461,7 @@
     "slug": "tablier-plastique",
     "category": "Tabliers & vêtements pro",
     "price": 2,
-    "image": "/products/jbad plastique.jpg"
+    "image": "/products/jbad-plastique.jpg"
   },
   {
     "id": 184,
@@ -1469,7 +1469,7 @@
     "slug": "tablier-rouge-pro",
     "category": "Tabliers & vêtements pro",
     "price": 8,
-    "image": "/products/jbad 7mar bro.jpg"
+    "image": "/products/jbad-7mar-bro.jpg"
   },
   {
     "id": 185,
@@ -1477,7 +1477,7 @@
     "slug": "tablier-vert",
     "category": "Tabliers & vêtements pro",
     "price": 10,
-    "image": "/products/jbad a5thar.jpg"
+    "image": "/products/jbad-a5thar.jpg"
   },
   {
     "id": 186,
@@ -1485,7 +1485,7 @@
     "slug": "hairnet-woven",
     "category": "Gants & protection",
     "price": 9,
-    "image": "/products/hairnet woven.jpg"
+    "image": "/products/hairnet-woven.jpg"
   },
   {
     "id": 187,
@@ -1493,7 +1493,7 @@
     "slug": "gants-vinyle",
     "category": "Gants & protection",
     "price": 12.5,
-    "image": "/products/gants en vinyle.jpg"
+    "image": "/products/gants-en-vinyle.jpg"
   },
   {
     "id": 188,
@@ -1501,7 +1501,7 @@
     "slug": "garanty-vinyle",
     "category": "Gants & protection",
     "price": 13.5,
-    "image": "/products/garanty vinyle.jpg"
+    "image": "/products/garanty-vinyle.jpg"
   },
   {
     "id": 189,
@@ -1509,7 +1509,7 @@
     "slug": "hdpe-disposable",
     "category": "Gants & protection",
     "price": 17,
-    "image": "/products/hdpe dispsable.jpg"
+    "image": "/products/hdpe-dispsable.jpg"
   },
   {
     "id": 190,
@@ -1517,7 +1517,7 @@
     "slug": "assiettes-carton",
     "category": "Emballages - contenants",
     "price": 0,
-    "image": "/products/assiettes en carton.jpg"
+    "image": "/products/assiettes-en-carton.jpg"
   },
   {
     "id": 191,
@@ -1533,7 +1533,7 @@
     "slug": "barquettes-alimentaire",
     "category": "Emballages - contenants",
     "price": 0,
-    "image": "/products/barquettes alimentaire.jpg"
+    "image": "/products/barquettes-alimentaire.jpg"
   },
   {
     "id": 193,
@@ -1541,7 +1541,7 @@
     "slug": "aluminum-foil-containers",
     "category": "Emballages - contenants",
     "price": 0,
-    "image": "/products/aluminum foil containers.jpg"
+    "image": "/products/aluminum-foil-containers.jpg"
   },
   {
     "id": 194,
@@ -1549,7 +1549,7 @@
     "slug": "boite-bi-compartiment",
     "category": "Emballages - contenants",
     "price": 0,
-    "image": "/products/boite bi-comportament.jpg"
+    "image": "/products/boite-bi-comportament.jpg"
   },
   {
     "id": 195,
@@ -1557,7 +1557,7 @@
     "slug": "boite-carree",
     "category": "Emballages - contenants",
     "price": 0,
-    "image": "/products/boite carrée.jpg"
+    "image": "/products/boite-carree.jpg"
   },
   {
     "id": 196,
@@ -1565,7 +1565,7 @@
     "slug": "boite-repas",
     "category": "Emballages - contenants",
     "price": 0,
-    "image": "/products/boite repas.jpg"
+    "image": "/products/boite-repas.jpg"
   },
   {
     "id": 197,
@@ -1573,7 +1573,7 @@
     "slug": "bol-salade",
     "category": "Emballages - contenants",
     "price": 0,
-    "image": "/products/le bol salade.jpg"
+    "image": "/products/le-bol-salade.jpg"
   },
   {
     "id": 198,
@@ -1581,7 +1581,7 @@
     "slug": "bol-kraft",
     "category": "Emballages - contenants",
     "price": 0,
-    "image": "/products/bol kraft.jpg"
+    "image": "/products/bol-kraft.jpg"
   },
   {
     "id": 199,
@@ -1589,7 +1589,7 @@
     "slug": "bol-kraft-2",
     "category": "Emballages - contenants",
     "price": 0,
-    "image": "/products/bol kraft 2.jpg"
+    "image": "/products/bol-kraft-2.jpg"
   },
   {
     "id": 200,
@@ -1597,7 +1597,7 @@
     "slug": "bols-plastique",
     "category": "Emballages - contenants",
     "price": 0,
-    "image": "/products/bols en plastique.jpg"
+    "image": "/products/bols-en-plastique.jpg"
   },
   {
     "id": 201,
@@ -1613,7 +1613,7 @@
     "slug": "aluminum-foil-containers-2",
     "category": "Emballages - contenants",
     "price": 0,
-    "image": "/products/aluminum foil containers 2.jpg"
+    "image": "/products/aluminum-foil-containers-2.jpg"
   },
   {
     "id": 203,
@@ -1621,7 +1621,7 @@
     "slug": "aluminum-containers-1",
     "category": "Emballages - contenants",
     "price": 0,
-    "image": "/products/aluminum containers 1.jpg"
+    "image": "/products/aluminum-containers-1.jpg"
   },
   {
     "id": 204,
@@ -1629,7 +1629,7 @@
     "slug": "pizza-box-grand",
     "category": "Emballages - contenants",
     "price": 14.5,
-    "image": "/products/pizza_box_grand.jpg"
+    "image": "/products/pizza-box-grand.jpg"
   },
   {
     "id": 205,
@@ -1637,7 +1637,7 @@
     "slug": "mini-box-pizza",
     "category": "Emballages - contenants",
     "price": 13,
-    "image": "/products/mini mox pizza.jpg"
+    "image": "/products/mini-mox-pizza.jpg"
   },
   {
     "id": 206,
@@ -1645,7 +1645,7 @@
     "slug": "mini-cocotte",
     "category": "Emballages - contenants",
     "price": 0,
-    "image": "/products/mini cocotte.jpg"
+    "image": "/products/mini-cocotte.jpg"
   },
   {
     "id": 207,
@@ -1653,7 +1653,7 @@
     "slug": "ramequins-plastique",
     "category": "Emballages - contenants",
     "price": 0,
-    "image": "/products/ramequibs en plastique.jpg"
+    "image": "/products/ramequibs-en-plastique.jpg"
   },
   {
     "id": 208,
@@ -1661,7 +1661,7 @@
     "slug": "yummy-box",
     "category": "Emballages - contenants",
     "price": 0,
-    "image": "/products/yummy box.jpg"
+    "image": "/products/yummy-box.jpg"
   },
   {
     "id": 209,
@@ -1669,7 +1669,7 @@
     "slug": "bouteille-blanc",
     "category": "Emballages - bouteilles",
     "price": 0,
-    "image": "/products/bouteille bnac.jpg"
+    "image": "/products/bouteille-bnac.jpg"
   },
   {
     "id": 210,
@@ -1677,7 +1677,7 @@
     "slug": "bouteille-plastique",
     "category": "Emballages - bouteilles",
     "price": 0,
-    "image": "/products/bouteille en plastique.jpg"
+    "image": "/products/bouteille-en-plastique.jpg"
   },
   {
     "id": 211,
@@ -1685,7 +1685,7 @@
     "slug": "bouteille-jaune",
     "category": "Emballages - bouteilles",
     "price": 0,
-    "image": "/products/bouteille jaune.jpg"
+    "image": "/products/bouteille-jaune.jpg"
   },
   {
     "id": 212,
@@ -1693,7 +1693,7 @@
     "slug": "bouteille-noire",
     "category": "Emballages - bouteilles",
     "price": 0,
-    "image": "/products/bouteille noire.jpg"
+    "image": "/products/bouteille-noire.jpg"
   },
   {
     "id": 213,
@@ -1701,7 +1701,7 @@
     "slug": "bouteille-rouge",
     "category": "Emballages - bouteilles",
     "price": 0,
-    "image": "/products/bouteille red.jpg"
+    "image": "/products/bouteille-red.jpg"
   },
   {
     "id": 214,
@@ -1717,7 +1717,7 @@
     "slug": "gobelet-avec-couverture",
     "category": "Emballages - gobelets",
     "price": 0,
-    "image": "/products/gobelet avec couverture.jpg"
+    "image": "/products/gobelet-avec-couverture.jpg"
   },
   {
     "id": 216,
@@ -1725,7 +1725,7 @@
     "slug": "gobelets-dessert",
     "category": "Emballages - gobelets",
     "price": 0,
-    "image": "/products/coublets a dessert.jpg"
+    "image": "/products/coublets-a-dessert-4.jpg"
   },
   {
     "id": 217,
@@ -1741,7 +1741,7 @@
     "slug": "goblets-coffee-1",
     "category": "Emballages - gobelets",
     "price": 0,
-    "image": "/products/coblets coffee 1.jpg"
+    "image": "/products/coblets-coffee-1.jpg"
   },
   {
     "id": 219,
@@ -1749,7 +1749,7 @@
     "slug": "goblets-coffee-2",
     "category": "Emballages - gobelets",
     "price": 0,
-    "image": "/products/coblets coffet 2.jpg"
+    "image": "/products/coblets-coffet-2.jpg"
   },
   {
     "id": 220,
@@ -1757,7 +1757,7 @@
     "slug": "goblets-coffee-3",
     "category": "Emballages - gobelets",
     "price": 0,
-    "image": "/products/goblets coffee 3.jpg"
+    "image": "/products/goblets-coffee-3.jpg"
   },
   {
     "id": 221,
@@ -1765,7 +1765,7 @@
     "slug": "goblets-coffee-4",
     "category": "Emballages - gobelets",
     "price": 0,
-    "image": "/products/coblets coffee 4.jpg"
+    "image": "/products/coblets-coffee-4.jpg"
   },
   {
     "id": 222,
@@ -1773,7 +1773,7 @@
     "slug": "goblets-coffee-5",
     "category": "Emballages - gobelets",
     "price": 0,
-    "image": "/products/coblets coffee 5.jpg"
+    "image": "/products/coblets-coffee-5.jpg"
   },
   {
     "id": 223,
@@ -1781,7 +1781,7 @@
     "slug": "gobelets-plastique",
     "category": "Emballages - gobelets",
     "price": 0,
-    "image": "/products/gobelets en plastique.jpg"
+    "image": "/products/gobelets-en-plastique.jpg"
   },
   {
     "id": 224,
@@ -1789,7 +1789,7 @@
     "slug": "gobelets-hexagonaux",
     "category": "Emballages - gobelets",
     "price": 0,
-    "image": "/products/gobelets hexagonaux.jpg"
+    "image": "/products/gobelets-hexagonaux.jpg"
   },
   {
     "id": 225,
@@ -1797,7 +1797,7 @@
     "slug": "goblets-plastique-2",
     "category": "Emballages - gobelets",
     "price": 0,
-    "image": "/products/goblets en plastique.jpg"
+    "image": "/products/goblets-en-plastique.jpg"
   },
   {
     "id": 226,
@@ -1805,7 +1805,7 @@
     "slug": "papier-cuisson",
     "category": "Emballages - papiers",
     "price": 2.5,
-    "image": "/products/papier cuissante.jpg"
+    "image": "/products/papier-cuissante.jpg"
   },
   {
     "id": 227,
@@ -1813,7 +1813,7 @@
     "slug": "sac-kraft",
     "category": "Emballages - papiers",
     "price": 0,
-    "image": "/products/sac kraft.jpg"
+    "image": "/products/sac-kraft.jpg"
   },
   {
     "id": 228,
@@ -1821,7 +1821,7 @@
     "slug": "sac-kraft-3",
     "category": "Emballages - papiers",
     "price": 0,
-    "image": "/products/sac kraft 3.jpg"
+    "image": "/products/sac-kraft-3.jpg"
   },
   {
     "id": 229,
@@ -1829,7 +1829,7 @@
     "slug": "sac-kraft-2",
     "category": "Emballages - papiers",
     "price": 0,
-    "image": "/products/sac kraft 2.jpg"
+    "image": "/products/sac-kraft-2.jpg"
   },
   {
     "id": 230,
@@ -1837,7 +1837,7 @@
     "slug": "sac-kraft-4",
     "category": "Emballages - papiers",
     "price": 0,
-    "image": "/products/sac kraft 4.jpg"
+    "image": "/products/sac-kraft-4.jpg"
   },
   {
     "id": 231,
@@ -1845,7 +1845,7 @@
     "slug": "sac-poubelle",
     "category": "Emballages - papiers",
     "price": 0,
-    "image": "/products/sac poubelle.jpg"
+    "image": "/products/sac-poubelle.jpg"
   },
   {
     "id": 232,
@@ -1861,7 +1861,7 @@
     "slug": "moule-papier-2",
     "category": "Emballages - pâtisserie",
     "price": 0,
-    "image": "/products/moule en papier 2.jpg"
+    "image": "/products/moule-en-papier-2.jpg"
   },
   {
     "id": 234,
@@ -1869,7 +1869,7 @@
     "slug": "moules-papier",
     "category": "Emballages - pâtisserie",
     "price": 0,
-    "image": "/products/moules en papier.jpg"
+    "image": "/products/moules-en-papier.jpg"
   },
   {
     "id": 235,
@@ -1877,7 +1877,7 @@
     "slug": "plateau-gateau-4",
     "category": "Emballages - pâtisserie",
     "price": 0,
-    "image": "/products/plateau a gateau.jpg"
+    "image": "/products/plateau-a-gateau.jpg"
   },
   {
     "id": 236,
@@ -1885,7 +1885,7 @@
     "slug": "plateau-gateau-3",
     "category": "Emballages - pâtisserie",
     "price": 0,
-    "image": "/products/plateau gateau 3.jpg"
+    "image": "/products/plateau-gateau-3.jpg"
   },
   {
     "id": 237,
@@ -1893,7 +1893,7 @@
     "slug": "plateau-gateau-2",
     "category": "Emballages - pâtisserie",
     "price": 0,
-    "image": "/products/plateau gateau 2.jpg"
+    "image": "/products/plateau-gateau-2.jpg"
   },
   {
     "id": 238,
@@ -1901,7 +1901,7 @@
     "slug": "plateau-gateau",
     "category": "Emballages - pâtisserie",
     "price": 0,
-    "image": "/products/plateaux pour gateau.jpg"
+    "image": "/products/plateaux-pour-gateau.jpg"
   },
   {
     "id": 239,
@@ -1909,7 +1909,7 @@
     "slug": "sous-tarte-dore",
     "category": "Emballages - pâtisserie",
     "price": 0,
-    "image": "/products/sous tarte doré.jpg"
+    "image": "/products/sous-tarte-dore.jpg"
   },
   {
     "id": 240,
@@ -1917,7 +1917,7 @@
     "slug": "sous-tarte-dore-2",
     "category": "Emballages - pâtisserie",
     "price": 0,
-    "image": "/products/sous tarte doré 2.jpg"
+    "image": "/products/sous-tarte-dore-2.jpg"
   },
   {
     "id": 241,
@@ -1925,7 +1925,7 @@
     "slug": "couverts-plastique",
     "category": "Ustensiles jetables",
     "price": 0,
-    "image": "/products/couverts en plastique.jpg"
+    "image": "/products/couverts-en-plastique.jpg"
   },
   {
     "id": 242,
@@ -1933,7 +1933,7 @@
     "slug": "cuilleres-soupe",
     "category": "Ustensiles jetables",
     "price": 12.5,
-    "image": "/products/cuiléres a soupe.jpg"
+    "image": "/products/cuileres-a-soupe.jpg"
   },
   {
     "id": 243,
@@ -1941,7 +1941,7 @@
     "slug": "cuilleres-plastique",
     "category": "Ustensiles jetables",
     "price": 0,
-    "image": "/products/cuilléres en plastique.jpg"
+    "image": "/products/cuilleres-en-plastique.jpg"
   },
   {
     "id": 244,
@@ -1949,7 +1949,7 @@
     "slug": "pailles-multicolor",
     "category": "Ustensiles jetables",
     "price": 1.5,
-    "image": "/products/pailles multicolor.jpg"
+    "image": "/products/pailles-multicolor.jpg"
   },
   {
     "id": 245,
@@ -1957,7 +1957,7 @@
     "slug": "pailles-noires",
     "category": "Ustensiles jetables",
     "price": 1.5,
-    "image": "/products/paille noires.jpg"
+    "image": "/products/paille-noires.jpg"
   },
   {
     "id": 246,
@@ -1965,7 +1965,7 @@
     "slug": "pailles-zigzag",
     "category": "Ustensiles jetables",
     "price": 2.5,
-    "image": "/products/pailles zig zag.jpg"
+    "image": "/products/pailles-zig-zag.jpg"
   },
   {
     "id": 247,
@@ -1973,7 +1973,7 @@
     "slug": "petits-batonnets",
     "category": "Ustensiles jetables",
     "price": 2.5,
-    "image": "/products/petits batonnets.jpg"
+    "image": "/products/petits-batonnets.jpg"
   },
   {
     "id": 248,
@@ -1981,7 +1981,7 @@
     "slug": "touillettes-plastique",
     "category": "Ustensiles jetables",
     "price": 2.5,
-    "image": "/products/touillettes plastique.jpg"
+    "image": "/products/touillettes-plastique.jpg"
   },
   {
     "id": 249,
@@ -1989,7 +1989,7 @@
     "slug": "kit-fete",
     "category": "Décoration & fêtes",
     "price": 0,
-    "image": "/products/kit de fete.jpg"
+    "image": "/products/kit-de-fete.jpg"
   },
   {
     "id": 250,
@@ -1997,7 +1997,7 @@
     "slug": "kit-fete-2",
     "category": "Décoration & fêtes",
     "price": 0,
-    "image": "/products/kit de fete 2.jpg"
+    "image": "/products/kit-de-fete-2.jpg"
   },
   {
     "id": 251,
@@ -2005,7 +2005,7 @@
     "slug": "mini-parasols",
     "category": "Décoration & fêtes",
     "price": 0,
-    "image": "/products/mini parasols.jpg"
+    "image": "/products/mini-parasols.jpg"
   },
   {
     "id": 252,
@@ -2013,7 +2013,7 @@
     "slug": "nappe-table-1",
     "category": "Décoration & fêtes",
     "price": 0,
-    "image": "/products/nappe de table 1.jpg"
+    "image": "/products/nappe-de-table-1.jpg"
   },
   {
     "id": 253,
@@ -2021,7 +2021,7 @@
     "slug": "nappe-table-2",
     "category": "Décoration & fêtes",
     "price": 0,
-    "image": "/products/nappe table 2.jpg"
+    "image": "/products/nappe-table-2.jpg"
   },
   {
     "id": 254,
@@ -2029,7 +2029,7 @@
     "slug": "nappe-table-3",
     "category": "Décoration & fêtes",
     "price": 5,
-    "image": "/products/nappe table 3.jpg"
+    "image": "/products/nappe-table-3.jpg"
   },
   {
     "id": 255,
@@ -2037,7 +2037,7 @@
     "slug": "nappe-table-4",
     "category": "Décoration & fêtes",
     "price": 11,
-    "image": "/products/nappe table 4.jpg"
+    "image": "/products/nappe-table-4.jpg"
   },
   {
     "id": 256,
@@ -2045,7 +2045,7 @@
     "slug": "nappe-table-5",
     "category": "Décoration & fêtes",
     "price": 15,
-    "image": "/products/nappe de table 5.jpg"
+    "image": "/products/nappe-de-table-5.jpg"
   },
   {
     "id": 257,
@@ -2053,7 +2053,7 @@
     "slug": "nappe-table-6",
     "category": "Décoration & fêtes",
     "price": 0,
-    "image": "/products/nappe de table 6.jpg"
+    "image": "/products/nappe-de-table-6.jpg"
   },
   {
     "id": 258,
@@ -2061,7 +2061,7 @@
     "slug": "nappe-table-7",
     "category": "Décoration & fêtes",
     "price": 0,
-    "image": "/products/nappe de table 7.jpg"
+    "image": "/products/nappe-de-table-7.jpg"
   },
   {
     "id": 259,
@@ -2069,7 +2069,7 @@
     "slug": "nappe-table-8",
     "category": "Décoration & fêtes",
     "price": 0,
-    "image": "/products/nappe de table 8.jpg"
+    "image": "/products/nappe-de-table-8.jpg"
   },
   {
     "id": 260,
@@ -2077,7 +2077,7 @@
     "slug": "nappe-table-9",
     "category": "Décoration & fêtes",
     "price": 0,
-    "image": "/products/nappe de table 9.jpg"
+    "image": "/products/nappe-de-table-9.jpg"
   },
   {
     "id": 261,
@@ -2085,7 +2085,7 @@
     "slug": "nattes-rouleau",
     "category": "Décoration & fêtes",
     "price": 0,
-    "image": "/products/nattes en rouleau.jpg"
+    "image": "/products/nattes-en-rouleau.jpg"
   },
   {
     "id": 262,
@@ -2093,7 +2093,7 @@
     "slug": "neige-aerosol",
     "category": "Décoration & fêtes",
     "price": 0,
-    "image": "/products/neige en aérosol.jpg"
+    "image": "/products/neige-en-aerosol.jpg"
   },
   {
     "id": 263,
@@ -2101,7 +2101,7 @@
     "slug": "piques-decoratives",
     "category": "Décoration & fêtes",
     "price": 0,
-    "image": "/products/piques décoratives.jpg"
+    "image": "/products/piques-decoratives.jpg"
   },
   {
     "id": 264,
@@ -2109,7 +2109,7 @@
     "slug": "rubans-scintillants",
     "category": "Décoration & fêtes",
     "price": 0,
-    "image": "/products/rubans scintillants.jpg"
+    "image": "/products/rubans-scintillants.jpg"
   },
   {
     "id": 265,
@@ -2125,7 +2125,7 @@
     "slug": "colle-liquide",
     "category": "Accessoires divers",
     "price": 0.25,
-    "image": "/products/colle liquide.jpg"
+    "image": "/products/colle-liquide.jpg"
   },
   {
     "id": 267,
@@ -2133,6 +2133,6 @@
     "slug": "sucre-sticks",
     "category": "Accessoires divers",
     "price": 0,
-    "image": "/products/sucre en sticks.jpg"
+    "image": "/products/sucre-en-sticks.jpg"
   }
 ]

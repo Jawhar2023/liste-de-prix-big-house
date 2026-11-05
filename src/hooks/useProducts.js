@@ -7,17 +7,29 @@ import {
   uploadProductImage,
 } from '../lib/supabase'
 
-const STORAGE_KEY = 'bighouse-products-v3'
+const STORAGE_KEY = 'bighouse-products-v4'
 const ADMIN_KEY = 'bighouse-admin-mode'
 
+const seedBySlug = new Map(seedProducts.map((p) => [p.slug, p]))
+
 function mapRow(row) {
+  const seed = row.slug ? seedBySlug.get(row.slug) : null
+  const remote = row.image_url || ''
+  // Prefer sanitized local seed paths for /products/* (spaces broke PDF/Vercel)
+  // Keep full http(s) URLs from Supabase Storage uploads
+  let image = remote
+  if (seed?.image) {
+    if (!remote || remote.startsWith('/products/')) {
+      image = seed.image
+    }
+  }
   return {
     id: row.id,
     name: row.name,
     slug: row.slug || '',
     category: row.category || '',
     price: Number(row.price) || 0,
-    image: resolveImageUrl(row.image_url),
+    image: resolveImageUrl(image),
     sort_order: row.sort_order,
   }
 }

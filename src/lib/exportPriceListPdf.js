@@ -10,12 +10,11 @@ const COMPANY = {
   fiscal: 'Matricule fiscal : 1992556H/C/N/000',
 }
 
-// Smaller thumbs = much faster load + smaller PDF
-const IMG_W = 12 // mm
+const IMG_W = 13
 const IMG_H = (IMG_W * 16) / 9
-const ROW_H = IMG_H + 3
-const THUMB_PX_W = 72
-const THUMB_PX_H = 128
+const ROW_H = IMG_H + 3.5
+const THUMB_W = 90
+const THUMB_H = 160
 
 function formatPrice(price) {
   if (price === 0 || price == null) return '—'
@@ -31,30 +30,22 @@ function formatDateFr(date = new Date()) {
   })
 }
 
-/** Encode path segments so spaces / accents work (e.g. /products/café xxx.jpg) */
-function encodeImageUrl(src) {
-  if (!src || src.startsWith('data:')) return src
+function toAbsoluteUrl(src) {
+  if (!src) return null
+  if (src.startsWith('data:') || src.startsWith('blob:')) return src
   try {
-    if (src.startsWith('http://') || src.startsWith('https://')) {
-      const u = new URL(src)
-      u.pathname = u.pathname
-        .split('/')
-        .map((seg) => {
-          if (!seg) return ''
-          try {
-            return encodeURIComponent(decodeURIComponent(seg))
-          } catch {
-            return encodeURIComponent(seg)
-          }
-        })
-        .join('/')
-      return u.toString()
-    }
-    // relative path
+    return new URL(src, window.location.origin).href
+  } catch {
     return src
+  }
+}
+
+function encodePathUrl(absUrl) {
+  try {
+    const u = new URL(absUrl)
+    u.pathname = u.pathname
       .split('/')
-      .map((seg, i) => {
-        if (i === 0 && seg === '') return ''
+      .map((seg) => {
         if (!seg) return ''
         try {
           return encodeURIComponent(decodeURIComponent(seg))
@@ -63,138 +54,226 @@ function encodeImageUrl(src) {
         }
       })
       .join('/')
+    return u.href
   } catch {
-    return src
+    return absUrl
   }
 }
 
-function bitmapToJpegDataUrl(bitmap, outW, outH) {
-  const canvas = document.createElement('canvas')
-  canvas.width = outW
-  canvas.height = outH
-  const ctx = canvas.getContext('2d', { alpha: false })
+function collectUrlCandidates(src) {
+  if (!src) return []
+  const abs = toAbsoluteUrl(src)
+  const encoded = encodePathUrl(abs)
+  const list = [encoded, abs, src]
+  // also try without double-encoding issues
+  if (src.startsWith('/')) {
+    list.push(`${window.location.origin}${src}`)
+    list.push(
+      `${window.location.origin}${src
+        .split('/')
+        .map((s, i) => (i === 0 ? '' : encodeURIComponent(s)))
+        .join('/')}`
+    )
+  }
+  return [...new Set(list.filter(Boolean))]
+}
+
+function drawCover(ctx, source, outW, outH) {
   ctx.fillStyle = '#faf6f1'
   ctx.fillRect(0, 0, outW, outH)
-
+  const sw = source.width || source.videoWidth
+  const sh = source.height || source.videoHeight
+  if (!sw || !sh) return
   const targetRatio = outW / outH
-  const srcRatio = bitmap.width / bitmap.height
+  const srcRatio = sw / sh
   let sx = 0
   let sy = 0
-  let sw = bitmap.width
-  let sh = bitmap.height
+  let cw = sw
+  let ch = sh
   if (srcRatio > targetRatio) {
-    sw = bitmap.height * targetRatio
-    sx = (bitmap.width - sw) / 2
+    cw = sh * targetRatio
+    sx = (sw - cw) / 2
   } else {
-    sh = bitmap.width / targetRatio
-    sy = (bitmap.height - sh) / 2
+    ch = sw / targetRatio
+    sy = (sh - ch) / 2
   }
-  ctx.drawImage(bitmap, sx, sy, sw, sh, 0, 0, outW, outH)
-  if (typeof bitmap.close === 'function') bitmap.close()
-  return canvas.toDataURL('image/jpeg', 0.55)
+  ctx.drawImage(source, sx, sy, cw, ch, 0, 0, outW, outH)
 }
 
-async function fetchAsBitmap(url) {
+function canvasToJpeg(canvas) {
+  return canvas.toDataURL('image/jpeg', 0.62)
+}
+
+async function loadViaFetch(url, timeoutMs) {
   const controller = new AbortController()
-  const timer = setTimeout(() => controller.abort(), 6000)
+  const timer = setTimeout(() => controller.abort(), timeoutMs)
   try {
     const res = await fetch(url, {
       signal: controller.signal,
-      mode: 'cors',
-      cache: 'force-cache',
+      cache: 'reload',
+      credentials: 'same-origin',
     })
     if (!res.ok) throw new Error(`HTTP ${res.status}`)
     const blob = await res.blob()
-    if (!blob.type.startsWith('image/') && blob.type !== 'application/octet-stream') {
-      // still try — some servers omit content-type
+    let bitmap
+    try {
+      bitmap = await createImageBitmap(blob)
+    } catch {
+      // fallback through object URL + Image
+      const objUrl = URL.createObjectURL(blob)
+      try {
+        bitmap = await loadViaImageElement(objUrl, timeoutMs)
+      } finally {
+        URL.revokeObjectURL(objUrl)
+      }
     }
-    return await createImageBitmap(blob)
+    const canvas = document.createElement('canvas')
+    canvas.width = THUMB_W
+    canvas.height = THUMB_H
+    const ctx = canvas.getContext('2d', { alpha: false })
+    drawCover(ctx, bitmap, THUMB_W, THUMB_H)
+    if (typeof bitmap.close === 'function') bitmap.close()
+    return canvasToJpeg(canvas)
   } finally {
     clearTimeout(timer)
   }
 }
 
-function imageElementToBitmap(url) {
+function loadViaImageElement(url, timeoutMs) {
   return new Promise((resolve, reject) => {
     const img = new Image()
-    // same-origin: don't force CORS (avoids tainted canvas failures)
-    if (/^https?:\/\//i.test(url) && !url.includes(window.location.host)) {
-      img.crossOrigin = 'anonymous'
-    }
+    const isExternal =
+      /^https?:\/\//i.test(url) && !url.startsWith(window.location.origin)
+    if (isExternal) img.crossOrigin = 'anonymous'
+
     const timer = setTimeout(() => {
-      img.src = ''
+      img.onload = null
+      img.onerror = null
       reject(new Error('timeout'))
-    }, 6000)
-    img.onload = async () => {
+    }, timeoutMs)
+
+    img.onload = () => {
       clearTimeout(timer)
       try {
-        resolve(await createImageBitmap(img))
+        const canvas = document.createElement('canvas')
+        canvas.width = THUMB_W
+        canvas.height = THUMB_H
+        const ctx = canvas.getContext('2d', { alpha: false })
+        drawCover(ctx, img, THUMB_W, THUMB_H)
+        resolve(canvasToJpeg(canvas))
       } catch (e) {
         reject(e)
       }
     }
     img.onerror = () => {
       clearTimeout(timer)
-      reject(new Error('img error'))
+      reject(new Error('image error'))
     }
     img.src = url
   })
 }
 
-async function loadImageAsJpeg(src, outW = THUMB_PX_W, outH = THUMB_PX_H) {
+/** Try to reuse an already-rendered <img> from the dashboard (most reliable). */
+function loadFromDom(src) {
+  if (!src) return null
+  const imgs = Array.from(document.images || [])
+  const match = imgs.find((el) => {
+    if (!el.complete || el.naturalWidth < 2) return false
+    const s = el.currentSrc || el.src || ''
+    return (
+      s === src ||
+      s.endsWith(src) ||
+      decodeURIComponent(s).endsWith(src.replace(/^\//, '')) ||
+      (src.startsWith('/') && s.includes(src.split('/').pop()))
+    )
+  })
+  if (!match) return null
+  try {
+    const canvas = document.createElement('canvas')
+    canvas.width = THUMB_W
+    canvas.height = THUMB_H
+    const ctx = canvas.getContext('2d', { alpha: false })
+    drawCover(ctx, match, THUMB_W, THUMB_H)
+    return canvasToJpeg(canvas)
+  } catch {
+    return null
+  }
+}
+
+async function loadOneImage(src, { timeoutMs = 12000 } = {}) {
   if (!src) return null
 
-  const candidates = []
-  const encoded = encodeImageUrl(src)
-  candidates.push(encoded)
-  if (encoded !== src) candidates.push(src)
+  const fromDom = loadFromDom(src)
+  if (fromDom) return fromDom
 
+  const candidates = collectUrlCandidates(src)
   for (const url of candidates) {
     try {
-      const bitmap = await fetchAsBitmap(url)
-      return bitmapToJpegDataUrl(bitmap, outW, outH)
+      return await loadViaFetch(url, timeoutMs)
     } catch {
-      /* try next */
+      /* next */
     }
     try {
-      const bitmap = await imageElementToBitmap(url)
-      return bitmapToJpegDataUrl(bitmap, outW, outH)
+      return await loadViaImageElement(url, timeoutMs)
     } catch {
-      /* try next */
+      /* next */
     }
   }
   return null
 }
 
-async function loadImagesParallel(urls, { concurrency = 24, onProgress } = {}) {
+/**
+ * Load all images carefully:
+ * 1) parallel pass
+ * 2) slow retry pass for failures only
+ */
+async function loadAllImages(urls, onProgress) {
   const results = new Array(urls.length).fill(null)
   let done = 0
-  let next = 0
+  const bump = () => {
+    done += 1
+    if (onProgress) onProgress(done, urls.length)
+  }
 
+  // Pass 1 — parallel
+  const concurrency = 16
+  let next = 0
   async function worker() {
     while (next < urls.length) {
       const i = next++
-      results[i] = await loadImageAsJpeg(urls[i])
-      done++
-      if (onProgress) onProgress(done, urls.length)
+      results[i] = await loadOneImage(urls[i], { timeoutMs: 10000 })
+      bump()
     }
   }
-
-  const workers = Array.from(
-    { length: Math.min(concurrency, urls.length || 1) },
-    () => worker()
+  await Promise.all(
+    Array.from({ length: Math.min(concurrency, urls.length || 1) }, () =>
+      worker()
+    )
   )
-  await Promise.all(workers)
+
+  // Pass 2 — retry missing one-by-one (slower, more reliable)
+  const failed = []
+  for (let i = 0; i < results.length; i++) {
+    if (!results[i] && urls[i]) failed.push(i)
+  }
+
+  if (failed.length && onProgress) {
+    // keep progress at 100% of pass1, then show retry via same counter conceptually
+  }
+
+  for (const i of failed) {
+    // small pause helps flaky networks / browser limits
+    await new Promise((r) => setTimeout(r, 80))
+    results[i] = await loadOneImage(urls[i], { timeoutMs: 20000 })
+  }
+
   return results
 }
 
 async function loadLogoDataUrl() {
-  return loadImageAsJpeg('/logo.jpg', 160, 160)
+  return loadOneImage('/logo.jpg', { timeoutMs: 8000 })
 }
 
-/**
- * Generate & download Big House price list PDF with product photos.
- */
 export async function exportPriceListPdf(products, options = {}) {
   const doc = new jsPDF({ orientation: 'portrait', unit: 'mm', format: 'a4' })
   const pageW = doc.internal.pageSize.getWidth()
@@ -202,13 +281,12 @@ export async function exportPriceListPdf(products, options = {}) {
 
   if (options.onProgress) options.onProgress(0, products.length)
 
-  const images = await loadImagesParallel(
+  const images = await loadAllImages(
     products.map((p) => p.image || null),
-    {
-      concurrency: 28,
-      onProgress: options.onProgress,
-    }
+    options.onProgress
   )
+
+  const loadedCount = images.filter(Boolean).length
 
   // Header
   doc.setFillColor(42, 24, 16)
@@ -257,17 +335,15 @@ export async function exportPriceListPdf(products, options = {}) {
   doc.setFont('helvetica', 'normal')
   doc.setFontSize(8)
   doc.setTextColor(122, 99, 84)
-  const loadedCount = images.filter(Boolean).length
   const filterLabel = options.category
     ? `Catégorie : ${options.category}`
     : 'Toutes les catégories'
   doc.text(
-    `${filterLabel}  •  ${products.length} produits  •  ${loadedCount} photos  •  ${formatDateFr()}`,
+    `${filterLabel}  •  ${products.length} produits  •  ${loadedCount}/${products.length} photos  •  ${formatDateFr()}`,
     margin,
     y + 5
   )
 
-  // Use object rows so image index stays correct across pages
   const body = products.map((p, i) => ({
     id: String(p.id).padStart(3, '0'),
     photo: '',
@@ -306,19 +382,16 @@ export async function exportPriceListPdf(products, options = {}) {
       minCellHeight: 8,
       valign: 'middle',
     },
-    alternateRowStyles: {
-      fillColor: [250, 246, 241],
-    },
+    alternateRowStyles: { fillColor: [250, 246, 241] },
     columnStyles: {
       id: { cellWidth: 12, halign: 'center' },
-      photo: { cellWidth: IMG_W + 3.5, halign: 'center' },
+      photo: { cellWidth: IMG_W + 4, halign: 'center' },
       name: { cellWidth: 'auto' },
       category: { cellWidth: 38 },
       price: { cellWidth: 22, halign: 'right', fontStyle: 'bold' },
     },
     didDrawCell: (data) => {
       if (data.section !== 'body' || data.column.dataKey !== 'photo') return
-
       const idx = data.row.raw?._imgIndex
       const imgData = typeof idx === 'number' ? images[idx] : null
       const { x, y: cy, width, height } = data.cell
@@ -333,7 +406,6 @@ export async function exportPriceListPdf(products, options = {}) {
         doc.roundedRect(px, py, pw, ph, 0.8, 0.8, 'FD')
         return
       }
-
       try {
         doc.addImage(imgData, 'JPEG', px, py, pw, ph, undefined, 'FAST')
       } catch {
@@ -362,4 +434,6 @@ export async function exportPriceListPdf(products, options = {}) {
     ? `-${options.category.replace(/[^a-zA-Z0-9]+/g, '-').toLowerCase()}`
     : ''
   doc.save(`liste-de-prix-big-house${catPart}-${stamp}.pdf`)
+
+  return { total: products.length, withPhotos: loadedCount }
 }

@@ -93,13 +93,18 @@ export default function App() {
     setPdfBusy(true)
     setPdfProgress('0%')
     try {
-      await exportPriceListPdf(filtered, {
+      const result = await exportPriceListPdf(filtered, {
         category: category || '',
         onProgress: (done, total) => {
           const pct = total ? Math.round((done / total) * 100) : 0
           setPdfProgress(`${pct}%`)
         },
       })
+      if (result && result.withPhotos < result.total) {
+        window.alert(
+          `PDF téléchargé.\nPhotos incluses : ${result.withPhotos}/${result.total}\n\nAstuce : déploie les nouvelles images sur Vercel, puis relance le SQL update-image-urls.sql dans Supabase.`
+        )
+      }
     } catch (err) {
       window.alert(err?.message || 'Impossible de générer le PDF')
     } finally {
