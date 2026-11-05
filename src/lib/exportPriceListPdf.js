@@ -10,9 +10,12 @@ const COMPANY = {
   fiscal: 'Matricule fiscal : 1992556H/C/N/000',
 }
 
-const IMG_W = 14 // mm in PDF (9:16 portrait)
+// Smaller thumbs = much faster load + smaller PDF
+const IMG_W = 12 // mm
 const IMG_H = (IMG_W * 16) / 9
-const ROW_H = IMG_H + 4
+const ROW_H = IMG_H + 3
+const THUMB_PX_W = 72
+const THUMB_PX_H = 128
 
 function formatPrice(price) {
   if (price === 0 || price == null) return '—'
@@ -28,89 +31,186 @@ function formatDateFr(date = new Date()) {
   })
 }
 
-function loadImageAsJpeg(src, outW = 126, outH = 224) {
-  return new Promise((resolve) => {
-    if (!src) {
-      resolve(null)
-      return
+/** Encode path segments so spaces / accents work (e.g. /products/café xxx.jpg) */
+function encodeImageUrl(src) {
+  if (!src || src.startsWith('data:')) return src
+  try {
+    if (src.startsWith('http://') || src.startsWith('https://')) {
+      const u = new URL(src)
+      u.pathname = u.pathname
+        .split('/')
+        .map((seg) => {
+          if (!seg) return ''
+          try {
+            return encodeURIComponent(decodeURIComponent(seg))
+          } catch {
+            return encodeURIComponent(seg)
+          }
+        })
+        .join('/')
+      return u.toString()
     }
-    const img = new Image()
-    img.crossOrigin = 'anonymous'
-    const timer = setTimeout(() => resolve(null), 8000)
+    // relative path
+    return src
+      .split('/')
+      .map((seg, i) => {
+        if (i === 0 && seg === '') return ''
+        if (!seg) return ''
+        try {
+          return encodeURIComponent(decodeURIComponent(seg))
+        } catch {
+          return encodeURIComponent(seg)
+        }
+      })
+      .join('/')
+  } catch {
+    return src
+  }
+}
 
-    img.onload = () => {
+function bitmapToJpegDataUrl(bitmap, outW, outH) {
+  const canvas = document.createElement('canvas')
+  canvas.width = outW
+  canvas.height = outH
+  const ctx = canvas.getContext('2d', { alpha: false })
+  ctx.fillStyle = '#faf6f1'
+  ctx.fillRect(0, 0, outW, outH)
+
+  const targetRatio = outW / outH
+  const srcRatio = bitmap.width / bitmap.height
+  let sx = 0
+  let sy = 0
+  let sw = bitmap.width
+  let sh = bitmap.height
+  if (srcRatio > targetRatio) {
+    sw = bitmap.height * targetRatio
+    sx = (bitmap.width - sw) / 2
+  } else {
+    sh = bitmap.width / targetRatio
+    sy = (bitmap.height - sh) / 2
+  }
+  ctx.drawImage(bitmap, sx, sy, sw, sh, 0, 0, outW, outH)
+  if (typeof bitmap.close === 'function') bitmap.close()
+  return canvas.toDataURL('image/jpeg', 0.55)
+}
+
+async function fetchAsBitmap(url) {
+  const controller = new AbortController()
+  const timer = setTimeout(() => controller.abort(), 6000)
+  try {
+    const res = await fetch(url, {
+      signal: controller.signal,
+      mode: 'cors',
+      cache: 'force-cache',
+    })
+    if (!res.ok) throw new Error(`HTTP ${res.status}`)
+    const blob = await res.blob()
+    if (!blob.type.startsWith('image/') && blob.type !== 'application/octet-stream') {
+      // still try — some servers omit content-type
+    }
+    return await createImageBitmap(blob)
+  } finally {
+    clearTimeout(timer)
+  }
+}
+
+function imageElementToBitmap(url) {
+  return new Promise((resolve, reject) => {
+    const img = new Image()
+    // same-origin: don't force CORS (avoids tainted canvas failures)
+    if (/^https?:\/\//i.test(url) && !url.includes(window.location.host)) {
+      img.crossOrigin = 'anonymous'
+    }
+    const timer = setTimeout(() => {
+      img.src = ''
+      reject(new Error('timeout'))
+    }, 6000)
+    img.onload = async () => {
       clearTimeout(timer)
       try {
-        const canvas = document.createElement('canvas')
-        canvas.width = outW
-        canvas.height = outH
-        const ctx = canvas.getContext('2d')
-        ctx.fillStyle = '#faf6f1'
-        ctx.fillRect(0, 0, outW, outH)
-
-        // Cover crop into 9:16
-        const targetRatio = outW / outH
-        const srcRatio = img.width / img.height
-        let sx = 0
-        let sy = 0
-        let sw = img.width
-        let sh = img.height
-        if (srcRatio > targetRatio) {
-          sw = img.height * targetRatio
-          sx = (img.width - sw) / 2
-        } else {
-          sh = img.width / targetRatio
-          sy = (img.height - sh) / 2
-        }
-        ctx.drawImage(img, sx, sy, sw, sh, 0, 0, outW, outH)
-        resolve(canvas.toDataURL('image/jpeg', 0.72))
-      } catch {
-        resolve(null)
+        resolve(await createImageBitmap(img))
+      } catch (e) {
+        reject(e)
       }
     }
-
     img.onerror = () => {
       clearTimeout(timer)
-      resolve(null)
+      reject(new Error('img error'))
     }
-
-    img.src = src
+    img.src = url
   })
 }
 
-async function loadImagesInBatches(urls, batchSize = 12) {
-  const results = new Array(urls.length).fill(null)
-  for (let i = 0; i < urls.length; i += batchSize) {
-    const slice = urls.slice(i, i + batchSize)
-    const loaded = await Promise.all(slice.map((url) => loadImageAsJpeg(url)))
-    loaded.forEach((img, j) => {
-      results[i + j] = img
-    })
+async function loadImageAsJpeg(src, outW = THUMB_PX_W, outH = THUMB_PX_H) {
+  if (!src) return null
+
+  const candidates = []
+  const encoded = encodeImageUrl(src)
+  candidates.push(encoded)
+  if (encoded !== src) candidates.push(src)
+
+  for (const url of candidates) {
+    try {
+      const bitmap = await fetchAsBitmap(url)
+      return bitmapToJpegDataUrl(bitmap, outW, outH)
+    } catch {
+      /* try next */
+    }
+    try {
+      const bitmap = await imageElementToBitmap(url)
+      return bitmapToJpegDataUrl(bitmap, outW, outH)
+    } catch {
+      /* try next */
+    }
   }
+  return null
+}
+
+async function loadImagesParallel(urls, { concurrency = 24, onProgress } = {}) {
+  const results = new Array(urls.length).fill(null)
+  let done = 0
+  let next = 0
+
+  async function worker() {
+    while (next < urls.length) {
+      const i = next++
+      results[i] = await loadImageAsJpeg(urls[i])
+      done++
+      if (onProgress) onProgress(done, urls.length)
+    }
+  }
+
+  const workers = Array.from(
+    { length: Math.min(concurrency, urls.length || 1) },
+    () => worker()
+  )
+  await Promise.all(workers)
   return results
 }
 
 async function loadLogoDataUrl() {
-  return loadImageAsJpeg('/logo.jpg', 200, 200)
+  return loadImageAsJpeg('/logo.jpg', 160, 160)
 }
 
 /**
- * Generate & download the Big House price list PDF (with product photos).
- * @param {Array} products
- * @param {{ category?: string, onProgress?: (done: number, total: number) => void }} options
+ * Generate & download Big House price list PDF with product photos.
  */
 export async function exportPriceListPdf(products, options = {}) {
   const doc = new jsPDF({ orientation: 'portrait', unit: 'mm', format: 'a4' })
   const pageW = doc.internal.pageSize.getWidth()
   const margin = 12
 
-  // Load product images first
   if (options.onProgress) options.onProgress(0, products.length)
-  const imageUrls = products.map((p) => p.image || null)
-  const images = await loadImagesInBatches(imageUrls, 10)
-  if (options.onProgress) options.onProgress(products.length, products.length)
 
-  // Header band
+  const images = await loadImagesParallel(
+    products.map((p) => p.image || null),
+    {
+      concurrency: 28,
+      onProgress: options.onProgress,
+    }
+  )
+
+  // Header
   doc.setFillColor(42, 24, 16)
   doc.rect(0, 0, pageW, 42, 'F')
   doc.setFillColor(232, 163, 23)
@@ -142,16 +242,13 @@ export async function exportPriceListPdf(products, options = {}) {
 
   doc.setFontSize(7.5)
   doc.setTextColor(230, 220, 210)
-  ;[
-    COMPANY.address,
-    COMPANY.phone,
-    COMPANY.email,
-    COMPANY.fiscal,
-  ].forEach((line, i) => {
-    doc.text(line, pageW - margin, 12 + i * 4.2, { align: 'right' })
-  })
+  ;[COMPANY.address, COMPANY.phone, COMPANY.email, COMPANY.fiscal].forEach(
+    (line, i) => {
+      doc.text(line, pageW - margin, 12 + i * 4.2, { align: 'right' })
+    }
+  )
 
-  let y = 52
+  const y = 52
   doc.setTextColor(42, 24, 16)
   doc.setFont('helvetica', 'bold')
   doc.setFontSize(11)
@@ -160,32 +257,41 @@ export async function exportPriceListPdf(products, options = {}) {
   doc.setFont('helvetica', 'normal')
   doc.setFontSize(8)
   doc.setTextColor(122, 99, 84)
+  const loadedCount = images.filter(Boolean).length
   const filterLabel = options.category
     ? `Catégorie : ${options.category}`
     : 'Toutes les catégories'
   doc.text(
-    `${filterLabel}  •  ${products.length} produit${products.length > 1 ? 's' : ''}  •  ${formatDateFr()}`,
+    `${filterLabel}  •  ${products.length} produits  •  ${loadedCount} photos  •  ${formatDateFr()}`,
     margin,
     y + 5
   )
 
-  const rows = products.map((p) => [
-    String(p.id).padStart(3, '0'),
-    '', // photo drawn in didDrawCell
-    p.name || '',
-    p.category || '',
-    formatPrice(p.price),
-  ])
+  // Use object rows so image index stays correct across pages
+  const body = products.map((p, i) => ({
+    id: String(p.id).padStart(3, '0'),
+    photo: '',
+    name: p.name || '',
+    category: p.category || '',
+    price: formatPrice(p.price),
+    _imgIndex: i,
+  }))
 
   autoTable(doc, {
     startY: y + 9,
-    head: [['ID', 'Photo', 'Produit', 'Catégorie', 'Prix']],
-    body: rows,
+    columns: [
+      { header: 'ID', dataKey: 'id' },
+      { header: 'Photo', dataKey: 'photo' },
+      { header: 'Produit', dataKey: 'name' },
+      { header: 'Catégorie', dataKey: 'category' },
+      { header: 'Prix', dataKey: 'price' },
+    ],
+    body,
     margin: { left: margin, right: margin, bottom: 14 },
     styles: {
       font: 'helvetica',
-      fontSize: 8,
-      cellPadding: 2,
+      fontSize: 7.5,
+      cellPadding: 1.6,
       textColor: [28, 18, 12],
       lineColor: [230, 214, 198],
       lineWidth: 0.2,
@@ -204,52 +310,50 @@ export async function exportPriceListPdf(products, options = {}) {
       fillColor: [250, 246, 241],
     },
     columnStyles: {
-      0: { cellWidth: 12, halign: 'center' },
-      1: { cellWidth: IMG_W + 4, halign: 'center' },
-      2: { cellWidth: 'auto' },
-      3: { cellWidth: 40 },
-      4: { cellWidth: 24, halign: 'right', fontStyle: 'bold' },
+      id: { cellWidth: 12, halign: 'center' },
+      photo: { cellWidth: IMG_W + 3.5, halign: 'center' },
+      name: { cellWidth: 'auto' },
+      category: { cellWidth: 38 },
+      price: { cellWidth: 22, halign: 'right', fontStyle: 'bold' },
     },
     didDrawCell: (data) => {
-      if (data.section !== 'body' || data.column.index !== 1) return
-      const imgData = images[data.row.index]
+      if (data.section !== 'body' || data.column.dataKey !== 'photo') return
+
+      const idx = data.row.raw?._imgIndex
+      const imgData = typeof idx === 'number' ? images[idx] : null
+      const { x, y: cy, width, height } = data.cell
+      const pw = IMG_W
+      const ph = IMG_H
+      const px = x + (width - pw) / 2
+      const py = cy + (height - ph) / 2
+
       if (!imgData) {
-        // empty photo placeholder
-        const { x, y: cy, width, height } = data.cell
         doc.setDrawColor(210, 190, 170)
         doc.setFillColor(245, 238, 230)
-        const pw = IMG_W
-        const ph = IMG_H
-        const px = x + (width - pw) / 2
-        const py = cy + (height - ph) / 2
-        doc.roundedRect(px, py, pw, ph, 1, 1, 'FD')
+        doc.roundedRect(px, py, pw, ph, 0.8, 0.8, 'FD')
         return
       }
+
       try {
-        const { x, y: cy, width, height } = data.cell
-        const pw = IMG_W
-        const ph = IMG_H
-        const px = x + (width - pw) / 2
-        const py = cy + (height - ph) / 2
-        doc.addImage(imgData, 'JPEG', px, py, pw, ph)
+        doc.addImage(imgData, 'JPEG', px, py, pw, ph, undefined, 'FAST')
       } catch {
-        /* skip broken image */
+        try {
+          doc.addImage(imgData, 'JPEG', px, py, pw, ph)
+        } catch {
+          /* skip */
+        }
       }
     },
     didDrawPage: (data) => {
       const pageH = doc.internal.pageSize.getHeight()
-      // re-draw thin gold line under header only on first page is already done
       doc.setFontSize(7)
       doc.setTextColor(122, 99, 84)
-      const pageCount = doc.internal.getNumberOfPages()
       doc.text(
-        `Big House — Liste de prix (avec photos)  |  Page ${data.pageNumber}`,
+        `Big House — Liste de prix  |  Page ${data.pageNumber}`,
         pageW / 2,
         pageH - 8,
         { align: 'center' }
       )
-      // silence unused
-      void pageCount
     },
   })
 

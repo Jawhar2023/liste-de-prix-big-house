@@ -20,6 +20,7 @@ export default function Toolbar({
   onReset,
   onDownloadPdf,
   pdfBusy,
+  pdfProgress,
   count,
   total,
 }) {
@@ -49,7 +50,7 @@ export default function Toolbar({
                 >
                   <Download className={`h-4 w-4 ${pdfBusy ? 'animate-pulse' : ''}`} />
                   <span className="hidden sm:inline">
-                    {pdfBusy ? 'Photos…' : 'PDF'}
+                    {pdfBusy ? `PDF ${pdfProgress || '…'}` : 'PDF'}
                   </span>
                 </button>
                 <button

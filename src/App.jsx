@@ -30,6 +30,7 @@ export default function App() {
   const [modal, setModal] = useState({ open: false, mode: 'add', product: null })
   const [loginOpen, setLoginOpen] = useState(false)
   const [pdfBusy, setPdfBusy] = useState(false)
+  const [pdfProgress, setPdfProgress] = useState('')
 
   const filtered = useMemo(() => {
     const q = search.trim().toLowerCase()
@@ -90,12 +91,20 @@ export default function App() {
   async function handleDownloadPdf() {
     if (!filtered.length || pdfBusy) return
     setPdfBusy(true)
+    setPdfProgress('0%')
     try {
-      await exportPriceListPdf(filtered, { category: category || '' })
+      await exportPriceListPdf(filtered, {
+        category: category || '',
+        onProgress: (done, total) => {
+          const pct = total ? Math.round((done / total) * 100) : 0
+          setPdfProgress(`${pct}%`)
+        },
+      })
     } catch (err) {
       window.alert(err?.message || 'Impossible de générer le PDF')
     } finally {
       setPdfBusy(false)
+      setPdfProgress('')
     }
   }
 
@@ -116,6 +125,7 @@ export default function App() {
           onReset={handleReset}
           onDownloadPdf={handleDownloadPdf}
           pdfBusy={pdfBusy}
+          pdfProgress={pdfProgress}
           count={filtered.length}
           total={products.length}
         />
