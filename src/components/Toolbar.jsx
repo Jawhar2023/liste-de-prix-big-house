@@ -1,4 +1,5 @@
 import {
+  Download,
   Lock,
   LockOpen,
   Plus,
@@ -17,6 +18,8 @@ export default function Toolbar({
   onToggleAdmin,
   onAdd,
   onReset,
+  onDownloadPdf,
+  pdfBusy,
   count,
   total,
 }) {
@@ -37,6 +40,18 @@ export default function Toolbar({
           <div className="flex flex-wrap items-center gap-2">
             {isAdmin && (
               <>
+                <button
+                  type="button"
+                  onClick={onDownloadPdf}
+                  disabled={pdfBusy || count === 0}
+                  className="inline-flex items-center gap-1.5 rounded-xl border border-brand-gold/40 bg-white px-3 py-2 text-sm font-semibold text-brand-brown-deep shadow-sm transition hover:bg-brand-gold-bright/20 active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-50"
+                  title="Télécharger la liste de prix en PDF"
+                >
+                  <Download className={`h-4 w-4 ${pdfBusy ? 'animate-pulse' : ''}`} />
+                  <span className="hidden sm:inline">
+                    {pdfBusy ? 'PDF…' : 'PDF'}
+                  </span>
+                </button>
                 <button
                   type="button"
                   onClick={onAdd}

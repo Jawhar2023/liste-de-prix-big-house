@@ -7,6 +7,7 @@ import ProductModal from './components/ProductModal'
 import AdminLoginModal from './components/AdminLoginModal'
 import { useProducts } from './hooks/useProducts'
 import { isSupabaseConfigured } from './lib/supabase'
+import { exportPriceListPdf } from './lib/exportPriceListPdf'
 
 export default function App() {
   const {
@@ -28,6 +29,7 @@ export default function App() {
   const [category, setCategory] = useState('')
   const [modal, setModal] = useState({ open: false, mode: 'add', product: null })
   const [loginOpen, setLoginOpen] = useState(false)
+  const [pdfBusy, setPdfBusy] = useState(false)
 
   const filtered = useMemo(() => {
     const q = search.trim().toLowerCase()
@@ -85,6 +87,18 @@ export default function App() {
     }
   }
 
+  async function handleDownloadPdf() {
+    if (!filtered.length || pdfBusy) return
+    setPdfBusy(true)
+    try {
+      await exportPriceListPdf(filtered, { category: category || '' })
+    } catch (err) {
+      window.alert(err?.message || 'Impossible de générer le PDF')
+    } finally {
+      setPdfBusy(false)
+    }
+  }
+
   return (
     <div className="mx-auto min-h-screen max-w-6xl px-3 pb-10 pt-4 sm:px-5 sm:pt-6">
       <CompanyHeader />
@@ -100,6 +114,8 @@ export default function App() {
           onToggleAdmin={handleToggleAdmin}
           onAdd={openAdd}
           onReset={handleReset}
+          onDownloadPdf={handleDownloadPdf}
+          pdfBusy={pdfBusy}
           count={filtered.length}
           total={products.length}
         />
