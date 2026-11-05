@@ -1,0 +1,104 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Outfit", sans-serif;
+  --font-body: "Source Sans 3", sans-serif;
+
+  --color-brand-brown: #3b2416;
+  --color-brand-brown-deep: #2a1810;
+  --color-brand-brown-soft: #5c3a28;
+  --color-brand-gold: #e8a317;
+  --color-brand-gold-bright: #ffb800;
+  --color-brand-gold-soft: #f6d98a;
+  --color-brand-cream: #faf6f1;
+  --color-brand-sand: #f3ebe1;
+  --color-brand-ink: #1c120c;
+  --color-brand-muted: #7a6354;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: var(--font-body);
+  color: var(--color-brand-ink);
+  background:
+    radial-gradient(ellipse 80% 50% at 0% 0%, rgba(232, 163, 23, 0.12), transparent 55%),
+    radial-gradient(ellipse 60% 40% at 100% 0%, rgba(92, 58, 40, 0.08), transparent 50%),
+    linear-gradient(180deg, #faf6f1 0%, #f0e6da 100%);
+  background-attachment: fixed;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+::selection {
+  background: rgba(232, 163, 23, 0.35);
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+.animate-fade-up {
+  animation: fade-up 0.45s ease-out both;
+}
+
+.logo-glow {
+  box-shadow:
+    0 0 0 1px rgba(232, 163, 23, 0.25),
+    0 12px 30px rgba(42, 24, 16, 0.28);
+}
+
+.price-chip {
+  background: linear-gradient(135deg, #ffb800 0%, #e8a317 100%);
+  color: #2a1810;
+  font-weight: 700;
+}
+
+.admin-bar {
+  background: linear-gradient(90deg, #2a1810, #3b2416 40%, #5c3a28);
+}
+
+.table-row-hover:hover {
+  background: rgba(232, 163, 23, 0.08);
+}
+
+.scrollbar-thin::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background: rgba(92, 58, 40, 0.35);
+  border-radius: 999px;
+}
+
+.modal-backdrop {
+  background: rgba(28, 18, 12, 0.55);
+  backdrop-filter: blur(6px);
+}
