@@ -1,18 +1,23 @@
 import { useMemo, useState } from 'react'
-import { PackageOpen } from 'lucide-react'
+import { Loader2, PackageOpen } from 'lucide-react'
 import CompanyHeader from './components/CompanyHeader'
 import Toolbar from './components/Toolbar'
 import ProductTable from './components/ProductTable'
 import ProductModal from './components/ProductModal'
 import AdminLoginModal from './components/AdminLoginModal'
 import { useProducts } from './hooks/useProducts'
+import { isSupabaseConfigured } from './lib/supabase'
 
 export default function App() {
   const {
     products,
     categories,
+    loading,
+    error,
     isAdmin,
-    toggleAdmin,
+    isRemote,
+    loginAdmin,
+    logoutAdmin,
     addProduct,
     updateProduct,
     deleteProduct,
@@ -45,20 +50,27 @@ export default function App() {
     setModal({ open: true, mode: 'edit', product })
   }
 
-  function handleSave(data) {
+  async function handleSave(data) {
     if (modal.mode === 'edit' && modal.product) {
-      updateProduct(modal.product.id, data)
-    } else {
-      addProduct(data)
+      return updateProduct(modal.product.id, data)
+    }
+    return addProduct(data)
+  }
+
+  async function handleDelete(product) {
+    const ok = window.confirm(`Supprimer « ${product.name} » ?`)
+    if (!ok) return
+    const result = await deleteProduct(product.id)
+    if (result && result.ok === false) {
+      window.alert(result.message || 'Suppression impossible')
     }
   }
 
-  function handleDelete(product) {
-    const ok = window.confirm(`Supprimer « ${product.name} » ?`)
-    if (ok) deleteProduct(product.id)
-  }
-
   function handleReset() {
+    if (isRemote) {
+      resetProducts()
+      return
+    }
     const ok = window.confirm(
       'Réinitialiser toute la liste avec les données d’origine ? Vos modifications seront perdues.'
     )
@@ -69,7 +81,7 @@ export default function App() {
     if (!isAdmin) {
       setLoginOpen(true)
     } else {
-      toggleAdmin()
+      logoutAdmin()
     }
   }
 
@@ -92,7 +104,19 @@ export default function App() {
           total={products.length}
         />
 
-        {filtered.length === 0 ? (
+        {isSupabaseConfigured && (
+          <p className="px-1 text-xs text-brand-muted">
+            Connecté à Supabase {isRemote ? '✓' : ''}
+            {error ? ` — ${error}` : ''}
+          </p>
+        )}
+
+        {loading ? (
+          <div className="flex flex-col items-center justify-center gap-3 rounded-2xl border border-brand-brown/10 bg-white/70 px-6 py-16">
+            <Loader2 className="h-8 w-8 animate-spin text-brand-gold" />
+            <p className="text-sm text-brand-muted">Chargement du catalogue…</p>
+          </div>
+        ) : filtered.length === 0 ? (
           <div className="flex flex-col items-center justify-center gap-3 rounded-2xl border border-dashed border-brand-brown/20 bg-white/60 px-6 py-16 text-center">
             <PackageOpen className="h-10 w-10 text-brand-gold" />
             <p className="font-display text-lg font-bold text-brand-brown-deep">
@@ -128,7 +152,7 @@ export default function App() {
       <AdminLoginModal
         open={loginOpen}
         onClose={() => setLoginOpen(false)}
-        onSuccess={toggleAdmin}
+        onLogin={loginAdmin}
       />
     </div>
   )

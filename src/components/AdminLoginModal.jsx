@@ -1,29 +1,41 @@
 import { useEffect, useRef, useState } from 'react'
 import { Lock, X } from 'lucide-react'
+import { ADMIN_EMAIL, isSupabaseConfigured } from '../lib/supabase'
 
-export default function AdminLoginModal({ open, onClose, onSuccess }) {
+export default function AdminLoginModal({ open, onClose, onLogin }) {
+  const [email, setEmail] = useState(ADMIN_EMAIL)
   const [password, setPassword] = useState('')
   const [error, setError] = useState('')
+  const [busy, setBusy] = useState(false)
   const inputRef = useRef(null)
 
   useEffect(() => {
     if (!open) return
     setPassword('')
     setError('')
+    setEmail(ADMIN_EMAIL)
     const t = setTimeout(() => inputRef.current?.focus(), 50)
     return () => clearTimeout(t)
   }, [open])
 
   if (!open) return null
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault()
-    if (password === 'tarekadmin') {
-      onSuccess()
-      onClose()
-      return
+    setBusy(true)
+    setError('')
+    try {
+      const result = await onLogin(password, email.trim())
+      if (result?.ok) {
+        onClose()
+      } else {
+        setError(result?.message || 'Mot de passe incorrect')
+      }
+    } catch (err) {
+      setError(err.message || 'Erreur de connexion')
+    } finally {
+      setBusy(false)
     }
-    setError('Mot de passe incorrect')
   }
 
   return (
@@ -57,6 +69,21 @@ export default function AdminLoginModal({ open, onClose, onSuccess }) {
         </div>
 
         <div className="space-y-4 px-5 py-5">
+          {isSupabaseConfigured && (
+            <label className="block space-y-1.5">
+              <span className="text-xs font-semibold uppercase tracking-wide text-brand-muted">
+                Email admin
+              </span>
+              <input
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className="w-full rounded-xl border border-brand-brown/12 bg-brand-cream px-3.5 py-3 text-base text-brand-brown-deep outline-none focus:border-brand-gold focus:ring-2 focus:ring-brand-gold/30"
+                required
+              />
+            </label>
+          )}
+
           <label className="block space-y-1.5">
             <span className="text-xs font-semibold uppercase tracking-wide text-brand-muted">
               Mot de passe
@@ -72,6 +99,7 @@ export default function AdminLoginModal({ open, onClose, onSuccess }) {
               }}
               placeholder="Entrez le mot de passe"
               className="w-full rounded-xl border border-brand-brown/12 bg-brand-cream px-3.5 py-3 text-base tracking-wide text-brand-brown-deep outline-none focus:border-brand-gold focus:ring-2 focus:ring-brand-gold/30"
+              required
             />
           </label>
 
@@ -92,9 +120,10 @@ export default function AdminLoginModal({ open, onClose, onSuccess }) {
           </button>
           <button
             type="submit"
-            className="flex-1 rounded-xl bg-brand-brown-deep px-4 py-2.5 text-sm font-semibold text-brand-gold-bright shadow-md transition hover:brightness-110"
+            disabled={busy}
+            className="flex-1 rounded-xl bg-brand-brown-deep px-4 py-2.5 text-sm font-semibold text-brand-gold-bright shadow-md transition hover:brightness-110 disabled:opacity-60"
           >
-            Connexion
+            {busy ? 'Connexion…' : 'Connexion'}
           </button>
         </div>
       </form>

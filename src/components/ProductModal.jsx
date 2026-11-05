@@ -6,6 +6,7 @@ const emptyForm = {
   category: '',
   price: '',
   image: '',
+  imageFile: null,
 }
 
 export default function ProductModal({
@@ -18,16 +19,21 @@ export default function ProductModal({
 }) {
   const [form, setForm] = useState(emptyForm)
   const [preview, setPreview] = useState('')
+  const [busy, setBusy] = useState(false)
+  const [error, setError] = useState('')
   const fileRef = useRef(null)
 
   useEffect(() => {
     if (!open) return
+    setError('')
+    setBusy(false)
     if (mode === 'edit' && product) {
       setForm({
         name: product.name || '',
         category: product.category || '',
         price: product.price ?? '',
         image: product.image || '',
+        imageFile: null,
       })
       setPreview(product.image || '')
     } else {
@@ -41,35 +47,45 @@ export default function ProductModal({
   function handleFile(e) {
     const file = e.target.files?.[0]
     if (!file) return
+    setForm((f) => ({ ...f, imageFile: file }))
     const reader = new FileReader()
-    reader.onload = () => {
-      const dataUrl = reader.result
-      setPreview(dataUrl)
-      setForm((f) => ({ ...f, image: dataUrl }))
-    }
+    reader.onload = () => setPreview(reader.result)
     reader.readAsDataURL(file)
   }
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault()
     const name = form.name.trim()
     const category = form.category.trim()
     const price = Number(form.price)
     if (!name || !category || Number.isNaN(price) || price < 0) return
 
-    onSave({
-      name,
-      category,
-      price,
-      image: form.image || null,
-      slug: name
-        .toLowerCase()
-        .normalize('NFD')
-        .replace(/[\u0300-\u036f]/g, '')
-        .replace(/[^a-z0-9]+/g, '-')
-        .replace(/(^-|-$)/g, ''),
-    })
-    onClose()
+    setBusy(true)
+    setError('')
+    try {
+      const result = await onSave({
+        name,
+        category,
+        price,
+        image: form.image || null,
+        imageFile: form.imageFile,
+        slug: name
+          .toLowerCase()
+          .normalize('NFD')
+          .replace(/[\u0300-\u036f]/g, '')
+          .replace(/[^a-z0-9]+/g, '-')
+          .replace(/(^-|-$)/g, ''),
+      })
+      if (result && result.ok === false) {
+        setError(result.message || 'Erreur lors de l’enregistrement')
+        return
+      }
+      onClose()
+    } catch (err) {
+      setError(err.message || 'Erreur lors de l’enregistrement')
+    } finally {
+      setBusy(false)
+    }
   }
 
   return (
@@ -166,6 +182,12 @@ export default function ProductModal({
               placeholder="0.00"
             />
           </Field>
+
+          {error && (
+            <p className="rounded-lg bg-red-50 px-3 py-2 text-sm font-medium text-red-700">
+              {error}
+            </p>
+          )}
         </div>
 
         <div className="flex gap-2 border-t border-brand-sand bg-brand-cream/60 px-5 py-4">
@@ -178,9 +200,10 @@ export default function ProductModal({
           </button>
           <button
             type="submit"
-            className="flex-1 rounded-xl bg-brand-brown-deep px-4 py-2.5 text-sm font-semibold text-brand-gold-bright shadow-md transition hover:brightness-110"
+            disabled={busy}
+            className="flex-1 rounded-xl bg-brand-brown-deep px-4 py-2.5 text-sm font-semibold text-brand-gold-bright shadow-md transition hover:brightness-110 disabled:opacity-60"
           >
-            Enregistrer
+            {busy ? 'Enregistrement…' : 'Enregistrer'}
           </button>
         </div>
       </form>
