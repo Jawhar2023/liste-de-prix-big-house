@@ -4,6 +4,7 @@ import CompanyHeader from './components/CompanyHeader'
 import Toolbar from './components/Toolbar'
 import ProductTable from './components/ProductTable'
 import ProductModal from './components/ProductModal'
+import AdminLoginModal from './components/AdminLoginModal'
 import { useProducts } from './hooks/useProducts'
 
 export default function App() {
@@ -21,6 +22,7 @@ export default function App() {
   const [search, setSearch] = useState('')
   const [category, setCategory] = useState('')
   const [modal, setModal] = useState({ open: false, mode: 'add', product: null })
+  const [loginOpen, setLoginOpen] = useState(false)
 
   const filtered = useMemo(() => {
     const q = search.trim().toLowerCase()
@@ -65,12 +67,7 @@ export default function App() {
 
   function handleToggleAdmin() {
     if (!isAdmin) {
-      const pin = window.prompt('Code admin (laissez vide ou entrez: admin)')
-      if (pin !== null && (pin === '' || pin.toLowerCase() === 'admin')) {
-        toggleAdmin()
-      } else if (pin !== null) {
-        window.alert('Code incorrect')
-      }
+      setLoginOpen(true)
     } else {
       toggleAdmin()
     }
@@ -126,6 +123,12 @@ export default function App() {
         categories={categories}
         onClose={() => setModal((m) => ({ ...m, open: false }))}
         onSave={handleSave}
+      />
+
+      <AdminLoginModal
+        open={loginOpen}
+        onClose={() => setLoginOpen(false)}
+        onSuccess={toggleAdmin}
       />
     </div>
   )

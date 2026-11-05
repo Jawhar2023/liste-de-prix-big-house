@@ -17,7 +17,7 @@ Ouvrez l’URL affichée (souvent `http://localhost:5173`).
 - En-tête société + logo
 - Table ID / photo / nom / catégorie / prix (cartes adaptées au mobile)
 - Recherche + filtre par catégorie
-- **Mode Admin** (bouton Admin, code : `admin` ou vide) :
+- **Mode Admin** (bouton Admin, mot de passe : `tarekadmin`) :
   - Ajouter un produit (avec photo)
   - Modifier nom, catégorie, prix, photo
   - Supprimer un produit

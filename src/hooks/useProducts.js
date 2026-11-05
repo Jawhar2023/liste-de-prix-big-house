@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import seedProducts from '../data/products.json'
 
-const STORAGE_KEY = 'bighouse-products-v1'
+const STORAGE_KEY = 'bighouse-products-v3'
 const ADMIN_KEY = 'bighouse-admin-mode'
 
 function loadProducts() {
