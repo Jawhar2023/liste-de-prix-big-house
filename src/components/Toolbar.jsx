@@ -49,7 +49,7 @@ export default function Toolbar({
                 >
                   <Download className={`h-4 w-4 ${pdfBusy ? 'animate-pulse' : ''}`} />
                   <span className="hidden sm:inline">
-                    {pdfBusy ? 'PDF…' : 'PDF'}
+                    {pdfBusy ? 'Photos…' : 'PDF'}
                   </span>
                 </button>
                 <button
